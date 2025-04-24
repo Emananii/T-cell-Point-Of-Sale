@@ -1,35 +1,42 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import CartView from './CartView';
 import ProductView from './ProductView';
 import './POS.css';
-import db from 'db.json';
 
 const POS = () => {
-  const [products, setProducts] = useState(db.products);
+  const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(true);
   
   useEffect(() => {
-    axios.get('http://localhost:3001/products')
+   
+    fetch('/db.json')
       .then(response => {
-        const formattedProducts = response.data.products
-          .filter(p => p.product_name) 
-          .map(product => ({
-            id: product.code,
-            name: product.product_name,
-            price: product.product_quantity ? parseFloat(product.product_quantity) * 10 : 10, // Default price
-            image: product.image_url
-          }));
-        setProducts(formattedProducts);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setProducts(data.products);
         setLoading(false);
       })
       .catch(error => {
         console.error("Error fetching products:", error);
         setLoading(false);
+      
+        setProducts([
+          {
+            id: 1,
+            name: "Sample Product",
+            price: 19.99,
+            image: "https://via.placeholder.com/200"
+          }
+        ]);
       });
   }, []);
 
+  
   const addToCart = (product) => {
     setCart(prevCart => {
       const existingItem = prevCart.find(item => item.id === product.id);

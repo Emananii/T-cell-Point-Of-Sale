@@ -1,16 +1,14 @@
-import { useState } from 'react'
-import './Styles/App.css'
-import POS from './Components/POS/POS'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import POS from './Components/POS/POS';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className='App'>
-      <POS/>
-      
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<POS />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

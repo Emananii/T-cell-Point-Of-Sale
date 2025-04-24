@@ -1,4 +1,4 @@
-import { Card, CardMedia, CardContent, Typography, Button, CircularProgress } from '@material-ui/core';
+import { Card, CardMedia, CardContent, Typography, Button, CircularProgress } from '@mui/material';
 import './POS.css';
 
 const ProductView = ({ products, loading, onAddToCart }) => {

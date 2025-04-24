@@ -1,4 +1,4 @@
-import { Button, TextField } from '@material-ui/core';
+import { Button, TextField } from '@mui/material';
 import './POS.css';
 
 const CartView = ({ cartItems, onRemove, onUpdateQuantity, onCheckout }) => {
