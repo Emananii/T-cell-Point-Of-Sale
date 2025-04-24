@@ -6,7 +6,7 @@ function Sidebar() {
     <div className="sidebar">
       <h2 className="sidebar-title">POS System</h2>
       <nav className="nav-links">
-        <NavLink to="/dashboard" activeclassname="active">Dashboard</NavLink>
+      <NavLink to="/dashboard" className={({ isActive }) => isActive ? "active" : ""}> Dashboard </NavLink>
         <NavLink to="/pos" activeclassname="active">POS</NavLink>
         <NavLink to="/inventory" activeclassname="active">Inventory</NavLink>
         <NavLink to="/sales" activeclassname="active">Sales</NavLink>
