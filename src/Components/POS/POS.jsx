@@ -3,14 +3,15 @@ import axios from 'axios';
 import CartView from './CartView';
 import ProductView from './ProductView';
 import './POS.css';
+import db from 'db.json';
 
 const POS = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(db.products);
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(true);
   
   useEffect(() => {
-    axios.get('https://world.openfoodfacts.org/api/v2/search?page_size=50&fields=code,product_name,product_quantity,image_url')
+    axios.get('http://localhost:3001/products')
       .then(response => {
         const formattedProducts = response.data.products
           .filter(p => p.product_name) 
