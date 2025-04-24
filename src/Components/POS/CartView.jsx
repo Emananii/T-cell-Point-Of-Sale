@@ -69,7 +69,7 @@ import { Box, Typography, Button, TextField, Divider,List,ListItem,ListItemText,
             <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
               <Typography variant="h6">Subtotal:</Typography>
               <Typography variant="h6" fontWeight="bold">
-                ₹{total.toFixed(2)}
+                {total.toFixed(2)}
               </Typography>
             </Box>
             

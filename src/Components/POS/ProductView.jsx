@@ -36,7 +36,7 @@ import { Card, CardMedia, CardContent, Typography, Button, Grid,Box,Chip,Stack
                     {product.brand}
                   </Typography>
                   <Stack direction="row" spacing={1} sx={{ my: 1 }}>
-                    <Chip label={`₹${product.price}`} color="primary" size="small" />
+                    <Chip label={`$${product.price}`} color="primary" size="small" />
                     <Chip label={`Stock: ${product.stock}`} size="small" />
                     {product.category && <Chip label={product.category} size="small" variant="outlined" />}
                   </Stack>

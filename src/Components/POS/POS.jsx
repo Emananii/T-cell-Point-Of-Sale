@@ -101,7 +101,7 @@ const POS = () => {
       };
 
       console.log("Sale completed:", newSale);
-      alert(`Sale completed! Total: ₹${calculateTotal()}`);
+      alert(`Sale completed! Total: ${calculateTotal()}`);
       setCart([]);
       
       
