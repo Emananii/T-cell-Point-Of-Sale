@@ -5,12 +5,12 @@ function TotalSalesDisplay({ salesData }) {
 
   return (
     <div className="total-sales-container">
-      <h2 className="total-sales-title">Total Sales: ${totalSales}</h2>
+      <h2 className="total-sales-title">Total Sales: Ksh {totalSales}</h2>
       <h3>Recent Sales:</h3>
       <ul>
         {salesData.slice(0, 5).map((sale) => (
           <li key={sale.id}>
-            Sale ID: {sale.id} - Total: ${sale.total} - Date: {new Date(sale.timestamp).toLocaleString()}
+            Sale ID: {sale.id} - Total: Ksh{sale.total} - Date: {new Date(sale.timestamp).toLocaleString()}
           </li>
         ))}
       </ul>
