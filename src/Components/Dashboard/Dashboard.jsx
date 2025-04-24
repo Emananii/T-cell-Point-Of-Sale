@@ -1,44 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import Sidebar from './Sidebar';
-import TotalSalesDisplay from './TotalSalesDisplay'; // We'll create this component next
+import { useEffect, useState } from "react";
+import TotalSalesDisplay from "./TotalSalesDisplay";
+import TrendingProducts from "./TrendingProducts";
 
 function Dashboard() {
   const [salesData, setSalesData] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [productsData, setProductsData] = useState([]);
 
   useEffect(() => {
-    const fetchSalesData = async () => {
-      try {
-        const response = await fetch('http://localhost:3000/sales');
-        if (!response.ok) {
-          throw new Error('Failed to fetch sales data');
-        }
-        const data = await response.json();
-        setSalesData(data);
-      } catch (error) {
-        setError(error.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-  
-    fetchSalesData();
-  }, []);  
+    fetch("http://localhost:3000/sales")
+      .then(res => res.json())
+      .then(data => setSalesData(data))
+      .catch(err => console.error("Sales fetch error:", err));
 
-  if (loading) {
-    return <div>Loading sales data...</div>;
-  }
-
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+    fetch("http://localhost:3000/products")
+      .then(res => res.json())
+      .then(data => setProductsData(data))
+      .catch(err => console.error("Products fetch error:", err));
+  }, []);
 
   return (
-    <div className="dashboard-container" style={{ display: "flex" }}>
+    <div className="dashboard-container" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
       <main style={{ flex: 1, padding: "2rem" }}>
         <h1>Welcome to the T-Cell Point Of Sale System</h1>
         <TotalSalesDisplay salesData={salesData} />
+        <TrendingProducts salesData={salesData} productsData={productsData} />
       </main>
     </div>
   );

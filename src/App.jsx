@@ -3,6 +3,7 @@ import Layout from './Components/Dashboard/Layout.jsx';
 import Dashboard from './Components/Dashboard/Dashboard.jsx';
 import InventoryList from "./Components/Inventory/InventoryList.jsx";
 import AddProductForm from "./Components/Inventory/AddProductForm.jsx";
+import Sales from "./Components/Sales/Sales.jsx";
 import { useState } from 'react';
 import './Styles/App.css';
 
@@ -21,7 +22,7 @@ function App() {
         {/* Routes wrapped in the shared layout */}
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/sales" element={<div>Sales Page</div>} />
+          <Route path="/sales" element={<Sales />} />
           <Route path="/inventory" element={
             <div>
               <h1>Inventory Management</h1>
