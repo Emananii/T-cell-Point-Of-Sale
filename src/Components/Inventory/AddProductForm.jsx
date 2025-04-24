@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../../Styles/Inventory.css';
 
 const AddProductForm = ({ onProductAdded }) => {
   const [name, setName] = useState('');
