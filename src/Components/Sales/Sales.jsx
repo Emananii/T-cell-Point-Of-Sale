@@ -8,7 +8,7 @@ function Sales() {
       .then(res => res.json())
       .then(data => setSales(data));
   }, []);
-
+  
   return (
     <div>
       <h2>Sales History</h2>
