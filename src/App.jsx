@@ -1,10 +1,10 @@
-import { useState } from 'react'
+
 import './Styles/App.css'
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from './Components/Dashboard/Dashboard.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <Router>
