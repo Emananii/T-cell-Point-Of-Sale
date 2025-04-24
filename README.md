@@ -25,8 +25,3 @@ This is a web-based Point of Sale (POS) system built with React, designed for ma
 
 - Node.js and npm should be installed. You can download them from [Node.js](https://nodejs.org/).
 
-### Steps to Install
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/your-username/pos-system.git
