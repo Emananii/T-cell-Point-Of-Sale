@@ -27,6 +27,12 @@
       "name": "Sugar",
       "price": 500,
       "quantity": 500
+    },
+    {
+      "id": "3bae",
+      "name": "Rice Biryani",
+      "price": 100,
+      "quantity": 500
     }
   ],
   "sales": [
