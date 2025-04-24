@@ -24,7 +24,7 @@ function TrendingProducts({ salesData, productsData }) {
       })
       .filter(Boolean)
       .sort((a, b) => b.quantitySold - a.quantitySold)
-      .slice(0, 5); // Top 5
+      .slice(0, 5); // This is to help us show only the Top 5
 
     setTrending(sortedTrending);
   }, [salesData, productsData]);

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import { useNavigate } from 'react-router-dom';
 import '../../Styles/POS.css';
 import CartView from './CartView';
 import ProductView from './ProductView';
@@ -8,9 +8,9 @@ const POS = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate(); // Initialize the useNavigate hook
+  const navigate = useNavigate(); 
 
-  // Fetch products
+ 
   useEffect(() => {
     fetch('http://localhost:3000/products')
       .then((response) => response.json())
@@ -38,7 +38,7 @@ const POS = () => {
       });
   }, []);
 
-  // Cart management
+
   const addToCart = (product) => {
     setCart((prevCart) => {
       const existing = prevCart.find((item) => item.id === product.id);
@@ -70,17 +70,16 @@ const POS = () => {
 
   const checkout = () => {
     console.log('Checkout:', cart);
-    setCart([]); // clear cart after checkout
+    setCart([])
   };
 
-  // Handle back button click
+
   const handleBackClick = () => {
-    navigate('/dashboard'); // Navigate back to the dashboard
+    navigate('/dashboard');
   };
 
   return (
     <div className="pos-container">
-      {/* Back Button */}
       <button onClick={handleBackClick} className="back-button">
         Back to Dashboard
       </button>

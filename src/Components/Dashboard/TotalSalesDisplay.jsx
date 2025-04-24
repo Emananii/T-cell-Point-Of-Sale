@@ -14,9 +14,6 @@ function TotalSalesDisplay({ salesData }) {
           </li>
         ))}
       </ul>
-      <div className="total-sales-footer">
-        {/* You can add any footer text or other information */}
-      </div>
     </div>
   );
 }

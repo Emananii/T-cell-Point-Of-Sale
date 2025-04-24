@@ -28,7 +28,7 @@ const AddProductForm = ({ onProductAdded }) => {
     setPrice('');
     setQuantity('');
 
-    // Notify parent to refresh list
+    // This is to Notify parent to refresh list
     if (onProductAdded) onProductAdded();
   };
 

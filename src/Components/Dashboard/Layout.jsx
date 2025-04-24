@@ -4,8 +4,8 @@ import { Outlet, useLocation } from "react-router-dom";
 function Layout() {
   const location = useLocation();
 
-  // This is for hiding the Sidebar on the POS screen
-  const hideSidebar = location.pathname === "/pos";
+  
+  const hideSidebar = location.pathname === "/pos";// This is for hiding the Sidebar on the POS screen
 
   return (
     <div style={{ display: "flex" }}>
