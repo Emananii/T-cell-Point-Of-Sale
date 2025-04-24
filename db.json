@@ -220,27 +220,64 @@
       "category": "Vegetables",
       "unit": "g"
     }
-    ],
-    "sales": [
-      {
-        "id": 1,
-        "timestamp": "2025-04-23T13:00:00Z",
-        "items": [
-          {
-            "productId": 1,
-            "name": "Coca-Cola",
-            "quantity": 2,
-            "priceAtSale": 120
-          },
-          {
-            "productId": 2,
-            "name": "Brown Bread",
-            "quantity": 1,
-            "priceAtSale": 80
-          }
-        ],
-        "total": 320
-      }
-    ]
-  }
-  
+  ],
+  "sales": [
+    {
+      "id": "1",
+      "timestamp": "2025-04-23T13:00:00Z",
+      "items": [
+        {
+          "productId": 1,
+          "name": "Coca-Cola",
+          "quantity": 2,
+          "priceAtSale": 120
+        },
+        {
+          "productId": 2,
+          "name": "Brown Bread",
+          "quantity": 1,
+          "priceAtSale": 80
+        }
+      ],
+      "total": 320
+    },
+    {
+      "id": "2",
+      "timestamp": "2025-04-23T14:30:00Z",
+      "items": [
+        {
+          "productId": 3,
+          "name": "Milk 500ml",
+          "quantity": 3,
+          "priceAtSale": 60
+        },
+        {
+          "productId": 9,
+          "name": "Peanut Butter",
+          "quantity": 1,
+          "priceAtSale": 350
+        }
+      ],
+      "total": 530
+    },
+    {
+      "id": "3",
+      "timestamp": "2025-04-23T15:45:00Z",
+      "items": [
+        {
+          "productId": 8,
+          "name": "Instant Noodles",
+          "quantity": 5,
+          "priceAtSale": 50
+        },
+        {
+          "productId": 6,
+          "name": "Rice Biryani",
+          "quantity": 2,
+          "priceAtSale": 100
+        }
+      ],
+      "total": 550
+    }
+  ]
+}
