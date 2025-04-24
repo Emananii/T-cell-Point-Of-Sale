@@ -1,12 +1,32 @@
-# React + Vite
+# Point of Sale (POS) System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Overview
 
-Currently, two official plugins are available:
+This is a web-based Point of Sale (POS) system built with React, designed for managing products and transactions in a retail environment. The system allows users to view products, add them to the shopping cart, manage the cart, and proceed to checkout. It also includes features like product filtering, cart item management, and a dashboard for better user experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Product Management**: Displays a list of products fetched from an API with information like name, price, stock, and category.
+- **Shopping Cart**: Allows users to add and remove products, as well as update quantities in the cart.
+- **Checkout**: Enables users to review the cart and simulate a checkout process.
+- **Responsive Design**: The interface adjusts to different screen sizes to ensure usability on both desktops and mobile devices.
+- **Dashboard Navigation**: Includes a button that allows users to return to the dashboard from the POS screen.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+- **Frontend**: React
+- **CSS**: Custom styles using CSS (no frameworks like Bootstrap or Material UI)
+- **Backend**: JSON Server (for serving mock product data)
+- **State Management**: React useState and useEffect hooks
+
+## Installation
+
+### Prerequisites
+
+- Node.js and npm should be installed. You can download them from [Node.js](https://nodejs.org/).
+
+### Steps to Install
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/pos-system.git
