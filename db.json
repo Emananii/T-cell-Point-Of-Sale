@@ -6,7 +6,7 @@
       "brand": "Coca-Cola",
       "price": 120,
       "stock": 50,
-      "image": "https://openfoodfacts.net/image-url.jpg",
+      "image": "https://images.unsplash.com/photo-1622708862830-a026e3ef60bd?q=80&w=2564&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "barcode": "5449000000996",
       "category": "Beverages",
       "unit": "ml"
@@ -17,7 +17,7 @@
       "brand": "SuperLoaf",
       "price": 80,
       "stock": 30,
-      "image": "https://openfoodfacts.net/image-url.jpg",
+      "image": "https://images.unsplash.com/photo-1591458736923-c06a260e3412?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "barcode": "1234567890123",
       "category": "Bakery",
       "unit": "g"

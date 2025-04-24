@@ -1,47 +1,45 @@
-import { Card, CardMedia, CardContent, Typography, Button, CircularProgress } from '@material-ui/core';
-import './POS.css';
+import '../../Styles/POS.css';
 
 const ProductView = ({ products, loading, onAddToCart }) => {
+  if (loading) {
+    return (
+      <div className="loading-spinner">
+        <div className="spinner"></div>
+        <p>Loading products...</p>
+      </div>
+    );
+  }
+
+  if (!products?.length) {
+    return <p>No products available.</p>;
+  }
+
   return (
     <div className="product-view">
       <h2>Products</h2>
-      
-      {loading ? (
-        <div className="loading-spinner">
-          <CircularProgress />
-          <p>Loading products...</p>
-        </div>
-      ) : (
-        <div className="product-grid">
-          {products.map(product => (
-            <Card key={product.id} className="product-card">
-              <CardMedia
-                component="img"
-                height="140"
-                image={product.image || 'https://via.placeholder.com/140'}
-                alt={product.name}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h6" component="div">
-                  {product.name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  ${product.price.toFixed(2)}
-                </Typography>
-              </CardContent>
-              <div className="product-actions">
-                <Button 
-                  size="small" 
-                  color="primary"
-                  onClick={() => onAddToCart(product)}
-                >
-                  Add to Cart
-                </Button>
-              </div>
-            </Card>
-          ))}
-        </div>
-      )}
+      <div className="product-grid">
+        {products.map((product) => (
+          <div key={product.id} className="product-card">
+            <img
+              src={product?.image || 'https://via.placeholder.com/140'}
+              alt={product?.name || 'Product Image'}
+              className="product-image"
+            />
+            <div className="product-details">
+              <h3>{product?.name || 'Unnamed Product'}</h3>
+              <p>${product?.price ? product.price.toFixed(2) : '0.00'}</p>
+            </div>
+            <div className="product-actions">
+              <button
+                className="add-to-cart-button"
+                onClick={() => onAddToCart(product)}
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

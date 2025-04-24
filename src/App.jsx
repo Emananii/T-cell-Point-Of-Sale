@@ -4,6 +4,7 @@ import Dashboard from './Components/Dashboard/Dashboard.jsx';
 import InventoryList from "./Components/Inventory/InventoryList.jsx";
 import AddProductForm from "./Components/Inventory/AddProductForm.jsx";
 import Sales from "./Components/Sales/Sales.jsx";
+import POS from "./Components/POS/POS.jsx";
 import { useState } from 'react';
 import './Styles/App.css';
 
@@ -31,9 +32,7 @@ function App() {
             </div>
           } />
         </Route>
-
-        {/* POS is rendered alone without the layout */}
-        <Route path="/pos" element={<div>POS Page (no sidebar)</div>} />
+        <Route path="/pos" element={<POS />} />
       </Routes>
     </Router>
   );

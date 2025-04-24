@@ -1,51 +1,59 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import '../../Styles/POS.css';
 import CartView from './CartView';
 import ProductView from './ProductView';
-import './POS.css';
-import db from 'db.json';
 
 const POS = () => {
-  const [products, setProducts] = useState(db.products);
+  const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(true);
-  
+  const navigate = useNavigate(); // Initialize the useNavigate hook
+
+  // Fetch products
   useEffect(() => {
-    axios.get('http://localhost:3001/products')
-      .then(response => {
-        const formattedProducts = response.data.products
-          .filter(p => p.product_name) 
-          .map(product => ({
-            id: product.code,
-            name: product.product_name,
-            price: product.product_quantity ? parseFloat(product.product_quantity) * 10 : 10, // Default price
-            image: product.image_url
+    fetch('http://localhost:3000/products')
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Fetched data from API:", data);
+        if (Array.isArray(data)) {
+          const formatted = data.map((product) => ({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            stock: product.stock,
+            image: product.image,
+            category: product.category,
+            unit: product.unit,
           }));
-        setProducts(formattedProducts);
+          setProducts(formatted);
+        } else {
+          console.error("Expected array from API, got:", data);
+        }
         setLoading(false);
       })
-      .catch(error => {
-        console.error("Error fetching products:", error);
+      .catch((error) => {
+        console.error("Fetch error:", error);
         setLoading(false);
       });
   }, []);
 
+  // Cart management
   const addToCart = (product) => {
-    setCart(prevCart => {
-      const existingItem = prevCart.find(item => item.id === product.id);
-      if (existingItem) {
-        return prevCart.map(item =>
-          item.id === product.id 
-            ? {...item, quantity: item.quantity + 1}
-            : item
-        );
-      }
-      return [...prevCart, {...product, quantity: 1}];
+    setCart((prevCart) => {
+      const existing = prevCart.find((item) => item.id === product.id);
+      return existing
+        ? prevCart.map((item) =>
+            item.id === product.id
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          )
+        : [...prevCart, { ...product, quantity: 1 }];
     });
   };
 
   const removeFromCart = (productId) => {
-    setCart(prevCart => prevCart.filter(item => item.id !== productId));
+    setCart((prev) => prev.filter((item) => item.id !== productId));
   };
 
   const updateQuantity = (productId, newQuantity) => {
@@ -53,34 +61,45 @@ const POS = () => {
       removeFromCart(productId);
       return;
     }
-    
-    setCart(prevCart => 
-      prevCart.map(item =>
-        item.id === productId
-          ? {...item, quantity: newQuantity}
-          : item
+    setCart((prev) =>
+      prev.map((item) =>
+        item.id === productId ? { ...item, quantity: newQuantity } : item
       )
     );
   };
 
   const checkout = () => {
-    console.log("Checking out:", cart);
-    setCart([]);
+    console.log('Checkout:', cart);
+    setCart([]); // clear cart after checkout
+  };
+
+  // Handle back button click
+  const handleBackClick = () => {
+    navigate('/dashboard'); // Navigate back to the dashboard
   };
 
   return (
     <div className="pos-container">
-      <CartView 
-        cartItems={cart} 
-        onRemove={removeFromCart}
-        onUpdateQuantity={updateQuantity}
-        onCheckout={checkout}
-      />
-      <ProductView 
-        products={products} 
-        loading={loading}
-        onAddToCart={addToCart}
-      />
+      {/* Back Button */}
+      <button onClick={handleBackClick} className="back-button">
+        Back to Dashboard
+      </button>
+
+      <div className="cart-section">
+        <CartView
+          cartItems={cart}
+          onRemove={removeFromCart}
+          onUpdateQuantity={updateQuantity}
+          onCheckout={checkout}
+        />
+      </div>
+      <div className="product-section">
+        <ProductView
+          products={products}
+          loading={loading}
+          onAddToCart={addToCart}
+        />
+      </div>
     </div>
   );
 };
