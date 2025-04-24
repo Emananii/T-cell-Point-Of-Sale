@@ -17,20 +17,11 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Redirect root to dashboard */}
         <Route path="/" element={<Navigate to="/dashboard" />} />
-
-        {/* Dashboard Page */}
         <Route path="/dashboard" element={<Dashboard />} />
-
-        {/* POS and Sales placeholders for now */}
         <Route path="/pos" element={<div>POS Page</div>} />
         <Route path="/sales" element={<div>Sales Page</div>} />
-
-        {/* ✅ Real Inventory Page */}
-        <Route
-          path="/inventory"
-          element={
+        <Route path="/inventory" element = {
             <div style={{ padding: '20px' }}>
               <h1>Inventory Management</h1>
               <AddProductForm onProductAdded={handleRefresh} />
