@@ -1,0 +1,44 @@
+.total-sales-container {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+  
+  .total-sales-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+  }
+  
+  .total-sales-amount {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #28a745;
+  }
+  
+  .total-sales-footer {
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    color: #777;
+  }
+  
+  @media (max-width: 768px) {
+    .total-sales-container {
+      padding: 1.5rem;
+    }
+    .total-sales-title {
+      font-size: 1.2rem;
+    }
+    .total-sales-amount {
+      font-size: 1.8rem;
+    }
+  }
+  

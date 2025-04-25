@@ -1,73 +1,47 @@
-import { Card, CardMedia, CardContent, Typography, Button, Grid,Box,Chip,Stack
-  } from '@mui/material';
-  import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-  
-  const ProductView = ({ products, onAddToCart }) => {
+import '../../Styles/POS.css';
+
+const ProductView = ({ products, loading, onAddToCart }) => {
+  if (loading) {
     return (
-      <Box sx={{ flexGrow: 1, overflow: 'auto' }}>
-        <Typography variant="h4" gutterBottom sx={{ p: 2, fontWeight: 'bold' }}>
-          Available Products
-        </Typography>
-        <Grid container spacing={3} sx={{ p: 2 }}>
-          {products.map((product) => (
-            <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
-              <Card sx={{ 
-                height: '100%', 
-                display: 'flex', 
-                flexDirection: 'column',
-                transition: 'transform 0.2s',
-                '&:hover': {
-                  transform: 'scale(1.03)',
-                  boxShadow: 3
-                }
-              }}>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={product.image || `https://via.placeholder.com/200?text=${product.name}`}
-                  alt={product.name}
-                  sx={{ objectFit: 'contain', p: 1, backgroundColor: '#fff' }}
-                />
-                <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography gutterBottom variant="h6" component="div">
-                    {product.name}
-                  </Typography>
-                  <Typography variant="body2" color="text.secondary">
-                    {product.brand}
-                  </Typography>
-                  <Stack direction="row" spacing={1} sx={{ my: 1 }}>
-                    <Chip label={`$${product.price}`} color="primary" size="small" />
-                    <Chip label={`Stock: ${product.stock}`} size="small" />
-                    {product.category && <Chip label={product.category} size="small" variant="outlined" />}
-                  </Stack>
-                </CardContent>
-                <Box sx={{ p: 2 }}>
-                  <Button
-                    fullWidth
-                    variant="contained"
-                    color="primary"
-                    startIcon={<AddShoppingCartIcon />}
-                    onClick={() => onAddToCart(product)}
-                    disabled={product.stock <= 0}
-                    sx={{
-                      backgroundColor: '#1976d2',
-                      '&:hover': {
-                        backgroundColor: '#1565c0'
-                      },
-                      '&:disabled': {
-                        backgroundColor: '#e0e0e0'
-                      }
-                    }}
-                  >
-                    {product.stock <= 0 ? 'Out of Stock' : 'Add to Cart'}
-                  </Button>
-                </Box>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Box>
+      <div className="loading-spinner">
+        <div className="spinner"></div>
+        <p>Loading products...</p>
+      </div>
     );
-  };
-  
-  export default ProductView;
+  }
+
+  if (!products?.length) {
+    return <p>No products available.</p>;
+  }
+
+  return (
+    <div className="product-view">
+      <h2>Products</h2>
+      <div className="product-grid">
+        {products.map((product) => (
+          <div key={product.id} className="product-card">
+            <img
+              src={product?.image || 'https://via.placeholder.com/140'}
+              alt={product?.name || 'Product Image'}
+              className="product-image"
+            />
+            <div className="product-details">
+              <h3>{product?.name || 'Unnamed Product'}</h3>
+              <p>${product?.price ? product.price.toFixed(2) : '0.00'}</p>
+            </div>
+            <div className="product-actions">
+              <button
+                className="add-to-cart-button"
+                onClick={() => onAddToCart(product)}
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default ProductView;

@@ -1,48 +1,295 @@
 {
-    "products": [
-      {
-        "id": 1,
-        "name": "Coca-Cola",
-        "brand": "Coca-Cola",
-        "price": 120,
-        "stock": 50,
-        "image": "https://openfoodfacts.net/image-url.jpg",
-        "barcode": "5449000000996",
-        "category": "Beverages",
-        "unit": "ml"
-      },
-      {
-        "id": 2,
-        "name": "Brown Bread",
-        "brand": "SuperLoaf",
-        "price": 80,
-        "stock": 30,
-        "image": "https://openfoodfacts.net/image-url.jpg",
-        "barcode": "1234567890123",
-        "category": "Bakery",
-        "unit": "g"
-      }
-    ],
-    "sales": [
-      {
-        "id": 1,
-        "timestamp": "2025-04-23T13:00:00Z",
-        "items": [
-          {
-            "productId": 1,
-            "name": "Coca-Cola",
-            "quantity": 2,
-            "priceAtSale": 120
-          },
-          {
-            "productId": 2,
-            "name": "Brown Bread",
-            "quantity": 1,
-            "priceAtSale": 80
-          }
-        ],
-        "total": 320
-      }
-    ]
-  }
-  
+  "products": [
+    {
+      "id": "1",
+      "name": "Coca-Cola",
+      "brand": "Coca-Cola",
+      "price": 120,
+      "stock": 50,
+      "image": "https://images.unsplash.com/photo-1622708862830-a026e3ef60bd?q=80&w=2564&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "barcode": "5449000000996",
+      "category": "Beverages",
+      "unit": "ml"
+    },
+    {
+      "id": "2",
+      "name": "Brown Bread",
+      "brand": "SuperLoaf",
+      "price": 80,
+      "stock": 30,
+      "image": "https://images.unsplash.com/photo-1591458736923-c06a260e3412?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "barcode": "1234567890123",
+      "category": "Bakery",
+      "unit": "g"
+    },
+    {
+      "id": "3",
+      "name": "Milk 500ml",
+      "brand": "Brookside",
+      "price": 60,
+      "stock": 100,
+      "image": "https://openfoodfacts.net/image-url.jpg",
+      "barcode": "1234567890001",
+      "category": "Dairy",
+      "unit": "ml"
+    },
+    {
+      "id": "4",
+      "name": "Cooking Oil",
+      "brand": "FreshFry",
+      "price": 250,
+      "stock": 25,
+      "image": "https://openfoodfacts.net/image-url.jpg",
+      "barcode": "1234567890002",
+      "category": "Grocery",
+      "unit": "ml"
+    },
+    {
+      "id": "5",
+      "name": "Sugar",
+      "brand": "Mumias",
+      "price": 500,
+      "stock": 40,
+      "image": "https://openfoodfacts.net/image-url.jpg",
+      "barcode": "1234567890003",
+      "category": "Grocery",
+      "unit": "g"
+    },
+    {
+      "id": "6",
+      "name": "Rice Biryani",
+      "brand": "Tilda",
+      "price": 100,
+      "stock": 60,
+      "image": "https://openfoodfacts.net/image-url.jpg",
+      "barcode": "1234567890004",
+      "category": "Grocery",
+      "unit": "g"
+    },
+    {
+      "id": "7",
+      "name": "Toilet Paper",
+      "brand": "Velvex",
+      "price": 300,
+      "stock": 200,
+      "image": "https://openfoodfacts.net/image-url.jpg",
+      "barcode": "1234567890005",
+      "category": "Household",
+      "unit": "roll"
+    },
+    {
+      "id": "8",
+      "name": "Instant Noodles",
+      "brand": "Indomie",
+      "price": 50,
+      "stock": 150,
+      "image": "https://openfoodfacts.net/image-url.jpg",
+      "barcode": "1234567890006",
+      "category": "Grocery",
+      "unit": "pack"
+    },
+    {
+      "id": "9",
+      "name": "Peanut Butter",
+      "brand": "Jif",
+      "price": 350,
+      "stock": 80,
+      "image": "https://openfoodfacts.net/image-url.jpg",
+      "barcode": "1234567890007",
+      "category": "Grocery",
+      "unit": "g"
+    },
+    {
+      "id": "10",
+      "name": "Salt",
+      "brand": "Morton",
+      "price": 30,
+      "stock": 120,
+      "image": "https://openfoodfacts.net/image-url.jpg",
+      "barcode": "1234567890008",
+      "category": "Grocery",
+      "unit": "g"
+    },
+    {
+      "id": "11",
+      "name": "Tomato Ketchup",
+      "brand": "Heinz",
+      "price": 250,
+      "stock": 150,
+      "image": "https://openfoodfacts.net/image-url.jpg",
+      "barcode": "1234567890009",
+      "category": "Grocery",
+      "unit": "ml"
+    },
+    {
+      "id": "12",
+      "name": "Lays Chips",
+      "brand": "Lays",
+      "price": 120,
+      "stock": 90,
+      "image": "https://openfoodfacts.net/image-url.jpg",
+      "barcode": "1234567890010",
+      "category": "Snacks",
+      "unit": "pack"
+    },
+    {
+      "id": "13",
+      "name": "Cheddar Cheese",
+      "brand": "Kraft",
+      "price": 350,
+      "stock": 70,
+      "image": "https://openfoodfacts.net/image-url.jpg",
+      "barcode": "1234567890011",
+      "category": "Dairy",
+      "unit": "g"
+    },
+    {
+      "id": "14",
+      "name": "Orange Juice",
+      "brand": "Tropicana",
+      "price": 150,
+      "stock": 110,
+      "image": "https://openfoodfacts.net/image-url.jpg",
+      "barcode": "1234567890012",
+      "category": "Beverages",
+      "unit": "ml"
+    },
+    {
+      "id": "15",
+      "name": "Frozen Pizza",
+      "brand": "DiGiorno",
+      "price": 600,
+      "stock": 50,
+      "image": "https://openfoodfacts.net/image-url.jpg",
+      "barcode": "1234567890013",
+      "category": "Frozen Foods",
+      "unit": "pack"
+    },
+    {
+      "id": "16",
+      "name": "Chicken Nuggets",
+      "brand": "Tyson",
+      "price": 500,
+      "stock": 60,
+      "image": "https://openfoodfacts.net/image-url.jpg",
+      "barcode": "1234567890014",
+      "category": "Frozen Foods",
+      "unit": "g"
+    },
+    {
+      "id": "17",
+      "name": "Apple",
+      "brand": "Fuji",
+      "price": 80,
+      "stock": 150,
+      "image": "https://openfoodfacts.net/image-url.jpg",
+      "barcode": "1234567890015",
+      "category": "Fruits",
+      "unit": "g"
+    },
+    {
+      "id": "18",
+      "name": "Banana",
+      "brand": "Cavendish",
+      "price": 40,
+      "stock": 200,
+      "image": "https://openfoodfacts.net/image-url.jpg",
+      "barcode": "1234567890016",
+      "category": "Fruits",
+      "unit": "g"
+    },
+    {
+      "id": "19",
+      "name": "Carrot",
+      "brand": "Organic",
+      "price": 50,
+      "stock": 100,
+      "image": "https://openfoodfacts.net/image-url.jpg",
+      "barcode": "1234567890017",
+      "category": "Vegetables",
+      "unit": "g"
+    },
+    {
+      "id": "20",
+      "name": "Tomato",
+      "brand": "Roma",
+      "price": 70,
+      "stock": 80,
+      "image": "https://openfoodfacts.net/image-url.jpg",
+      "barcode": "1234567890018",
+      "category": "Vegetables",
+      "unit": "g"
+    },
+    {
+      "id": "abde",
+      "name": "Beans",
+      "price": 90,
+      "quantity": 90
+    },
+    {
+      "id": "8929",
+      "name": "Nutella",
+      "price": 700,
+      "quantity": 20
+    }
+  ],
+  "sales": [
+    {
+      "id": "1",
+      "timestamp": "2025-04-23T13:00:00Z",
+      "items": [
+        {
+          "productId": 1,
+          "name": "Coca-Cola",
+          "quantity": 2,
+          "priceAtSale": 120
+        },
+        {
+          "productId": 2,
+          "name": "Brown Bread",
+          "quantity": 1,
+          "priceAtSale": 80
+        }
+      ],
+      "total": 320
+    },
+    {
+      "id": "2",
+      "timestamp": "2025-04-23T14:30:00Z",
+      "items": [
+        {
+          "productId": 3,
+          "name": "Milk 500ml",
+          "quantity": 3,
+          "priceAtSale": 60
+        },
+        {
+          "productId": 9,
+          "name": "Peanut Butter",
+          "quantity": 1,
+          "priceAtSale": 350
+        }
+      ],
+      "total": 530
+    },
+    {
+      "id": "3",
+      "timestamp": "2025-04-23T15:45:00Z",
+      "items": [
+        {
+          "productId": 8,
+          "name": "Instant Noodles",
+          "quantity": 5,
+          "priceAtSale": 50
+        },
+        {
+          "productId": 6,
+          "name": "Rice Biryani",
+          "quantity": 2,
+          "priceAtSale": 100
+        }
+      ],
+      "total": 550
+    }
+  ]
+}
