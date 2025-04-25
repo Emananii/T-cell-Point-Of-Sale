@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Coca-Cola",
       "brand": "Coca-Cola",
       "price": 120,
@@ -12,7 +12,7 @@
       "unit": "ml"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Brown Bread",
       "brand": "SuperLoaf",
       "price": 80,
@@ -23,7 +23,7 @@
       "unit": "g"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Milk 500ml",
       "brand": "Brookside",
       "price": 60,
@@ -34,7 +34,7 @@
       "unit": "ml"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Cooking Oil",
       "brand": "FreshFry",
       "price": 250,
@@ -45,7 +45,7 @@
       "unit": "ml"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Sugar",
       "brand": "Mumias",
       "price": 500,
@@ -56,7 +56,7 @@
       "unit": "g"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Rice Biryani",
       "brand": "Tilda",
       "price": 100,
@@ -67,7 +67,7 @@
       "unit": "g"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Toilet Paper",
       "brand": "Velvex",
       "price": 300,
@@ -78,7 +78,7 @@
       "unit": "roll"
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Instant Noodles",
       "brand": "Indomie",
       "price": 50,
@@ -89,7 +89,7 @@
       "unit": "pack"
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Peanut Butter",
       "brand": "Jif",
       "price": 350,
@@ -100,7 +100,7 @@
       "unit": "g"
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Salt",
       "brand": "Morton",
       "price": 30,
@@ -111,7 +111,7 @@
       "unit": "g"
     },
     {
-      "id": 11,
+      "id": "11",
       "name": "Tomato Ketchup",
       "brand": "Heinz",
       "price": 250,
@@ -122,7 +122,7 @@
       "unit": "ml"
     },
     {
-      "id": 12,
+      "id": "12",
       "name": "Lays Chips",
       "brand": "Lays",
       "price": 120,
@@ -133,7 +133,7 @@
       "unit": "pack"
     },
     {
-      "id": 13,
+      "id": "13",
       "name": "Cheddar Cheese",
       "brand": "Kraft",
       "price": 350,
@@ -144,7 +144,7 @@
       "unit": "g"
     },
     {
-      "id": 14,
+      "id": "14",
       "name": "Orange Juice",
       "brand": "Tropicana",
       "price": 150,
@@ -155,7 +155,7 @@
       "unit": "ml"
     },
     {
-      "id": 15,
+      "id": "15",
       "name": "Frozen Pizza",
       "brand": "DiGiorno",
       "price": 600,
@@ -166,7 +166,7 @@
       "unit": "pack"
     },
     {
-      "id": 16,
+      "id": "16",
       "name": "Chicken Nuggets",
       "brand": "Tyson",
       "price": 500,
@@ -177,7 +177,7 @@
       "unit": "g"
     },
     {
-      "id": 17,
+      "id": "17",
       "name": "Apple",
       "brand": "Fuji",
       "price": 80,
@@ -188,7 +188,7 @@
       "unit": "g"
     },
     {
-      "id": 18,
+      "id": "18",
       "name": "Banana",
       "brand": "Cavendish",
       "price": 40,
@@ -199,7 +199,7 @@
       "unit": "g"
     },
     {
-      "id": 19,
+      "id": "19",
       "name": "Carrot",
       "brand": "Organic",
       "price": 50,
@@ -210,7 +210,7 @@
       "unit": "g"
     },
     {
-      "id": 20,
+      "id": "20",
       "name": "Tomato",
       "brand": "Roma",
       "price": 70,
@@ -219,6 +219,18 @@
       "barcode": "1234567890018",
       "category": "Vegetables",
       "unit": "g"
+    },
+    {
+      "id": "abde",
+      "name": "Beans",
+      "price": 90,
+      "quantity": 90
+    },
+    {
+      "id": "8929",
+      "name": "Nutella",
+      "price": 700,
+      "quantity": 20
     }
   ],
   "sales": [
