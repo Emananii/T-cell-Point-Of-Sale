@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../Styles/POS.css';
 
-const CartView = ({ cartItems, onRemove, onUpdateQuantity, onCheckout }) => {
+function CartView({ cartItems, onRemove, onUpdateQuantity, onCheckout }){
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (

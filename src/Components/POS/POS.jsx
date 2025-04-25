@@ -20,7 +20,8 @@ const POS = () => {
           const formatted = data.map((product) => ({
             id: product.id,
             name: product.name,
-            price: product.price,
+            price: product["selling-price"],//changed db.json to have selling-price rather than just price
+            purchasePrice: product["purchase-price"],
             stock: product.stock,
             image: product.image,
             category: product.category,
