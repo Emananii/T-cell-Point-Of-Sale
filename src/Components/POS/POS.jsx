@@ -5,6 +5,7 @@ import CartView from './CartView';
 import ProductView from './ProductView';
 
 const POS = () => {
+  // State declarations
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [cart, setCart] = useState([]);
@@ -12,13 +13,17 @@ const POS = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortOption, setSortOption] = useState('name');
   const [sortDirection, setSortDirection] = useState('asc');
+  const [error, setError] = useState(null);
   const navigate = useNavigate();
 
+  // Fetch products
   useEffect(() => {
     fetch('http://localhost:3000/products')
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+      })
       .then((data) => {
-        console.log("Fetched data from API:", data);
         if (Array.isArray(data)) {
           const formatted = data.map((product) => ({
             id: product.id,
@@ -31,17 +36,17 @@ const POS = () => {
           }));
           setProducts(formatted);
           setFilteredProducts(formatted);
-        } else {
-          console.error("Expected array from API, got:", data);
         }
         setLoading(false);
       })
       .catch((error) => {
         console.error("Fetch error:", error);
+        setError(error.message);
         setLoading(false);
       });
   }, []);
 
+  // Filter and sort products
   useEffect(() => {
     let result = [...products];
     
@@ -63,6 +68,7 @@ const POS = () => {
     setFilteredProducts(result);
   }, [products, searchTerm, sortOption, sortDirection]);
 
+  // Cart functions
   const addToCart = (product) => {
     setCart((prevCart) => {
       const existing = prevCart.find((item) => item.id === product.id);
@@ -84,9 +90,8 @@ const POS = () => {
     if (newQuantity < 1) return removeFromCart(productId);
     
     const product = products.find(p => p.id === productId);
-    if (product && newQuantity > product.stock) {
-      return; 
-    }
+    if (product && newQuantity > product.stock) return;
+    
     setCart((prev) =>
       prev.map((item) =>
         item.id === productId ? { ...item, quantity: newQuantity } : item
@@ -120,6 +125,8 @@ const POS = () => {
       <button onClick={handleBackClick} className="back-button">
         Back to Dashboard
       </button>
+
+      {error && <div className="error-message">{error}</div>}
 
       <div className="product-controls">
         <input

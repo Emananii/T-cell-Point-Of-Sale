@@ -23,7 +23,7 @@
 }
 
 .product-section {
-  width: 60%; 
+  width: 60%; /* Set to 60% */
   padding: 20px;
   overflow-y: auto;
   background-color: #fafafa;
@@ -58,14 +58,14 @@
 }
 
 .back-button {
-  background-color: #4CAF50; 
+  background-color: #4CAF50; /* Green background */
   color: white;
   border: none;
-  padding: 8px 16px;  
-  font-size: 14px;  
+  padding: 8px 16px;  /* Smaller padding */
+  font-size: 14px;  /* Smaller font */
   border-radius: 5px;
   cursor: pointer;
-  position: fixed;  
+  position: fixed;  /* Position it fixed on the page */
   top: 20px;  /* 20px from the top */
   left: 20px;  /* 20px from the left */
   z-index: 100;  /* Ensure it’s above other content */
@@ -74,50 +74,92 @@
 }
 
 .back-button:hover {
-  background-color: #45a049; /* Darker green on hover */
+  background-color: #45a049; 
 }
 
-.product-controls {
+.pos-header {
   display: flex;
   justify-content: space-between;
-  margin: 20px 0;
-  padding: 0 20px;
-  gap: 15px;
+  align-items: center;
+  padding: 15px 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.back-button {
+  padding: 8px 16px;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.top-controls {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.search-container {
+  flex: 1;
+  max-width: 400px;
 }
 
 .search-input {
+  width: 100%;
   padding: 10px 15px;
-  flex-grow: 1;
-  max-width: 400px;
-  border: 1px solid #ddd;
+  border: 1px solid #ced4da;
   border-radius: 4px;
   font-size: 16px;
 }
 
-.sort-controls {
+.sort-container {
   display: flex;
-  gap: 10px;
   align-items: center;
+  gap: 10px;
 }
 
 .sort-select {
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid #ced4da;
   border-radius: 4px;
   background-color: white;
-  font-size: 14px;
 }
 
 .sort-direction-btn {
   padding: 10px 15px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
+  background: #e9ecef;
+  border: 1px solid #ced4da;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 14px;
 }
 
-.sort-direction-btn:hover {
-  background-color: #e0e0e0;
+.pos-content {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 20px;
+  padding: 20px;
 }
 
+.product-section {
+  grid-column: 1;
+}
+
+.cart-section {
+  grid-column: 2;
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+@media (max-width: 1024px) {
+  .pos-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .cart-section {
+    grid-column: 1;
+    position: static;
+  }
+}
