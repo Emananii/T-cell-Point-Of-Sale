@@ -5,7 +5,6 @@ import CartView from './CartView';
 import ProductView from './ProductView';
 
 const POS = () => {
-  // State declarations
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [cart, setCart] = useState([]);
@@ -14,6 +13,7 @@ const POS = () => {
   const [sortOption, setSortOption] = useState('name');
   const [sortDirection, setSortDirection] = useState('asc');
   const [error, setError] = useState(null);
+  const [isCheckoutComplete, setIsCheckoutComplete] = useState(false);
   const navigate = useNavigate();
 
   // Fetch products
@@ -46,11 +46,10 @@ const POS = () => {
       });
   }, []);
 
-  // Filter and sort products
+  
   useEffect(() => {
     let result = [...products];
     
-    // Apply search
     if (searchTerm) {
       result = result.filter(product =>
         product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -58,7 +57,6 @@ const POS = () => {
       );
     }
     
-    // Apply sort
     result.sort((a, b) => {
       if (a[sortOption] < b[sortOption]) return sortDirection === 'asc' ? -1 : 1;
       if (a[sortOption] > b[sortOption]) return sortDirection === 'asc' ? 1 : -1;
@@ -68,8 +66,10 @@ const POS = () => {
     setFilteredProducts(result);
   }, [products, searchTerm, sortOption, sortDirection]);
 
-  // Cart functions
+  
   const addToCart = (product) => {
+    if (isCheckoutComplete) return;
+    
     setCart((prevCart) => {
       const existing = prevCart.find((item) => item.id === product.id);
       return existing
@@ -83,10 +83,12 @@ const POS = () => {
   };
 
   const removeFromCart = (productId) => {
+    if (isCheckoutComplete) return;
     setCart((prev) => prev.filter((item) => item.id !== productId));
   };
 
   const updateQuantity = (productId, newQuantity) => {
+    if (isCheckoutComplete) return;
     if (newQuantity < 1) return removeFromCart(productId);
     
     const product = products.find(p => p.id === productId);
@@ -99,9 +101,34 @@ const POS = () => {
     );
   };
 
-  const checkout = () => {
-    console.log('Checkout:', cart);
-    setCart([]);
+  const checkout = async () => {
+    try {
+      
+      const saleData = {
+        date: new Date().toISOString(),
+        items: cart,
+        total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+        status: 'completed'
+      };
+
+      
+      const response = await fetch('http://localhost:3000/sales', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(saleData)
+      });
+
+      if (!response.ok) throw new Error('Failed to record sale');
+
+      setIsCheckoutComplete(true);
+      console.log('Sale recorded:', saleData);
+
+    } catch (error) {
+      console.error('Checkout error:', error);
+      setError('Failed to complete checkout. Please try again.');
+    }
   };
 
   const handleBackClick = () => {
@@ -163,6 +190,7 @@ const POS = () => {
           onRemove={removeFromCart}
           onUpdateQuantity={updateQuantity}
           onCheckout={checkout}
+          isCheckoutComplete={isCheckoutComplete}
         />
       </div>
       

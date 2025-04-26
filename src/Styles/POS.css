@@ -163,3 +163,31 @@
     position: static;
   }
 }
+
+.cart-item.completed {
+  opacity: 0.7;
+  background-color: #f8f9fa;
+}
+
+.checkout-complete {
+  text-align: center;
+  padding: 15px;
+  background-color: #e8f5e9;
+  border-radius: 4px;
+  margin-top: 15px;
+}
+
+.new-sale-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.quantity-input:disabled,
+.remove-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
