@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import TotalSalesDisplay from "./TotalSalesDisplay";
 import TrendingProducts from "./TrendingProducts";
 import DailyProfitCard from "./DailyProfitCard";
+import ProfitPerDayChart from "./ProfitPerDay";
 
 function Dashboard() {
   const [salesData, setSalesData] = useState([]);
@@ -26,6 +27,7 @@ function Dashboard() {
         <TotalSalesDisplay salesData={salesData} />
         <TrendingProducts salesData={salesData} productsData={productsData} />
         <DailyProfitCard salesData={salesData} productsData={productsData} />
+        <ProfitPerDayChart salesData={salesData} productsData={productsData} />
       </main>
     </div>
   );
