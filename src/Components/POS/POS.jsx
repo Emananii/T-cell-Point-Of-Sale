@@ -6,11 +6,14 @@ import ProductView from './ProductView';
 
 const POS = () => {
   const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate(); 
+  const [searchTerm, setSearchTerm] = useState('');
+  const [sortOption, setSortOption] = useState('name');
+  const [sortDirection, setSortDirection] = useState('asc');
+  const navigate = useNavigate();
 
- 
   useEffect(() => {
     fetch('http://localhost:3000/products')
       .then((response) => response.json())
@@ -27,6 +30,7 @@ const POS = () => {
             unit: product.unit,
           }));
           setProducts(formatted);
+          setFilteredProducts(formatted);
         } else {
           console.error("Expected array from API, got:", data);
         }
@@ -38,6 +42,26 @@ const POS = () => {
       });
   }, []);
 
+  useEffect(() => {
+    let result = [...products];
+    
+    // Apply search
+    if (searchTerm) {
+      result = result.filter(product =>
+        product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        product.category.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+    
+    // Apply sort
+    result.sort((a, b) => {
+      if (a[sortOption] < b[sortOption]) return sortDirection === 'asc' ? -1 : 1;
+      if (a[sortOption] > b[sortOption]) return sortDirection === 'asc' ? 1 : -1;
+      return 0;
+    });
+    
+    setFilteredProducts(result);
+  }, [products, searchTerm, sortOption, sortDirection]);
 
   const addToCart = (product) => {
     setCart((prevCart) => {
@@ -72,12 +96,23 @@ const POS = () => {
 
   const checkout = () => {
     console.log('Checkout:', cart);
-    setCart([])
+    setCart([]);
   };
-
 
   const handleBackClick = () => {
     navigate('/dashboard');
+  };
+
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleSortChange = (e) => {
+    setSortOption(e.target.value);
+  };
+
+  const toggleSortDirection = () => {
+    setSortDirection(prev => prev === 'asc' ? 'desc' : 'asc');
   };
 
   return (
@@ -85,6 +120,35 @@ const POS = () => {
       <button onClick={handleBackClick} className="back-button">
         Back to Dashboard
       </button>
+
+      <div className="product-controls">
+        <input
+          type="text"
+          placeholder="Search products..."
+          value={searchTerm}
+          onChange={handleSearch}
+          className="search-input"
+        />
+        
+        <div className="sort-controls">
+          <select 
+            value={sortOption} 
+            onChange={handleSortChange}
+            className="sort-select"
+          >
+            <option value="name">Name</option>
+            <option value="price">Price</option>
+            <option value="category">Category</option>
+          </select>
+          
+          <button 
+            onClick={toggleSortDirection} 
+            className="sort-direction-btn"
+          >
+            {sortDirection === 'asc' ? '↑' : '↓'}
+          </button>
+        </div>
+      </div>
 
       <div className="cart-section">
         <CartView
@@ -94,9 +158,10 @@ const POS = () => {
           onCheckout={checkout}
         />
       </div>
+      
       <div className="product-section">
         <ProductView
-          products={products}
+          products={filteredProducts}
           loading={loading}
           onAddToCart={addToCart}
         />
