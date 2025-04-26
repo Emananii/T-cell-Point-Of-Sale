@@ -1,15 +1,14 @@
-// Components/Dashboard/ProfitPerDayChart.jsx
 import React, { useMemo } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
-const ProfitPerDayChart = ({ salesData, productsData }) => {
+function ProfitPerDayChart({ salesData, productsData }){
   const data = useMemo(() => {
     const dailyProfit = {};
 
     salesData.forEach(sale => {
       if (!sale.timestamp) return;
 
-      const saleDate = sale.timestamp.split("T")[0]; // "2025-04-23"
+      const saleDate = sale.timestamp.split("T")[0];
 
       if (!dailyProfit[saleDate]) dailyProfit[saleDate] = 0;
 
@@ -23,7 +22,7 @@ const ProfitPerDayChart = ({ salesData, productsData }) => {
       });
     });
 
-    // Transform into array for Recharts
+    
     const formatted = Object.keys(dailyProfit).map(date => ({
       date,
       profit: dailyProfit[date]

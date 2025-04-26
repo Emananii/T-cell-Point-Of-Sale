@@ -1,7 +1,9 @@
 import React from 'react';
+import { useState } from 'react';
 import '../../Styles/POS.css';
 
 function CartView({ cartItems, onRemove, onUpdateQuantity, onCheckout }){
+  const [isCheckoutComplete, setIsCheckoutComplete] = useState(false);
   const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
