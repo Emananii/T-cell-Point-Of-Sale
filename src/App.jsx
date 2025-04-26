@@ -2,6 +2,7 @@
 import './Styles/App.css'
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from './Components/Dashboard/Dashboard.jsx'
+import Sales from './Components/Sales/Sales.jsx';
 
 function App() {
 
