@@ -8,7 +8,7 @@ function Sales() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:3000/sales')
+    fetch('http://localhost:5173/sales')
       .then(res => res.json())
       .then(data => {
         setSales(data);
@@ -138,4 +138,4 @@ function Sales() {
   );
 }
 
-export default Sales;
+export default Sales
