@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import TotalSalesDisplay from "./TotalSalesDisplay";
 import TrendingProducts from "./TrendingProducts";
+import DailyProfitCard from "./DailyProfitCard";
 
 function Dashboard() {
   const [salesData, setSalesData] = useState([]);
@@ -24,6 +25,7 @@ function Dashboard() {
         <h1>Welcome to the T-Cell Point Of Sale System</h1>
         <TotalSalesDisplay salesData={salesData} />
         <TrendingProducts salesData={salesData} productsData={productsData} />
+        <DailyProfitCard salesData={salesData} productsData={productsData} />
       </main>
     </div>
   );
