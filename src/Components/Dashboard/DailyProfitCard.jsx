@@ -1,6 +1,6 @@
 import React from 'react'
 
-function DailyProfitCard({salesData, productData}) {
+function DailyProfitCard({salesData, productsData}) {
 
     const today = new Date().toISOString().split("T")[0]; // '2025-04-26'
 

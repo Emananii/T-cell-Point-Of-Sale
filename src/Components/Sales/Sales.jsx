@@ -127,7 +127,7 @@ function Sales() {
                   <td className="py-4 px-6">
                     <ul className="list-disc list-inside text-sm">
                       {sale.items.map(item => (
-                        <li key={`${sale.id}-${item.productId}`}>
+                        <li key={`${sale.id}-${item.productId}-${item.name}`}>
                           {item.name} × {item.quantity}
                         </li>
                       ))}

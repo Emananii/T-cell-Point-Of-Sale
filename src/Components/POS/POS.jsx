@@ -104,33 +104,53 @@ const POS = () => {
 
   const checkout = async () => {
     try {
+      // Generate a unique sale ID (could be a UUID or any other method)
+      const saleId = '1dba'; // You can generate this dynamically as per your needs
       
+      // Format the timestamp to match the desired format
+      const timestamp = new Date().toISOString(); // No need to remove milliseconds here, as your format is fine
+  
+      // Prepare the sale data to match the required format
       const saleData = {
-        date: new Date().toISOString(),
-        items: cart,
+        id: saleId,  // Unique sale ID
+        timestamp: timestamp,  // Use 'timestamp' field
+        items: cart.map(item => ({
+          id: item.id,
+          name: item.name,
+          price: item.price,
+          stock: item.stock,  // Add stock info
+          image: item.image,  // Add image info
+          category: item.category,
+          unit: item.unit,  // Add unit info
+          quantity: item.quantity
+        })),
         total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
-        status: 'completed'
+        status: 'completed',
       };
-
-      
+  
+      // Make the POST request to save the sale
       const response = await fetch('http://localhost:3000/sales', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(saleData)
+        body: JSON.stringify(saleData),
       });
-
+  
       if (!response.ok) throw new Error('Failed to record sale');
-
+  
+      // Mark checkout as complete and clear the cart
       setIsCheckoutComplete(true);
+      setCart([]);
+  
       console.log('Sale recorded:', saleData);
-
     } catch (error) {
       console.error('Checkout error:', error);
       setError('Failed to complete checkout. Please try again.');
     }
   };
+  
+  
 
   const handleBackClick = () => {
     navigate('/dashboard');
