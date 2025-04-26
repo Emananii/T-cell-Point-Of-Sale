@@ -6,16 +6,24 @@ import ProductView from './ProductView';
 
 const POS = () => {
   const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate(); 
+  const [searchTerm, setSearchTerm] = useState('');
+  const [sortOption, setSortOption] = useState('name');
+  const [sortDirection, setSortDirection] = useState('asc');
+  const [error, setError] = useState(null);
+  const [isCheckoutComplete, setIsCheckoutComplete] = useState(false);
+  const navigate = useNavigate();
 
- 
+  // Fetch products
   useEffect(() => {
     fetch('http://localhost:3000/products')
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+      })
       .then((data) => {
-        console.log("Fetched data from API:", data);
         if (Array.isArray(data)) {
           const formatted = data.map((product) => ({
             id: product.id,
@@ -28,19 +36,41 @@ const POS = () => {
             unit: product.unit,
           }));
           setProducts(formatted);
-        } else {
-          console.error("Expected array from API, got:", data);
+          setFilteredProducts(formatted);
         }
         setLoading(false);
       })
       .catch((error) => {
         console.error("Fetch error:", error);
+        setError(error.message);
         setLoading(false);
       });
   }, []);
 
+  
+  useEffect(() => {
+    let result = [...products];
+    
+    if (searchTerm) {
+      result = result.filter(product =>
+        product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        product.category.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+    }
+    
+    result.sort((a, b) => {
+      if (a[sortOption] < b[sortOption]) return sortDirection === 'asc' ? -1 : 1;
+      if (a[sortOption] > b[sortOption]) return sortDirection === 'asc' ? 1 : -1;
+      return 0;
+    });
+    
+    setFilteredProducts(result);
+  }, [products, searchTerm, sortOption, sortDirection]);
 
+  
   const addToCart = (product) => {
+    if (isCheckoutComplete) return;
+    
     setCart((prevCart) => {
       const existing = prevCart.find((item) => item.id === product.id);
       return existing
@@ -54,14 +84,17 @@ const POS = () => {
   };
 
   const removeFromCart = (productId) => {
+    if (isCheckoutComplete) return;
     setCart((prev) => prev.filter((item) => item.id !== productId));
   };
 
   const updateQuantity = (productId, newQuantity) => {
-    if (newQuantity < 1) {
-      removeFromCart(productId);
-      return;
-    }
+    if (isCheckoutComplete) return;
+    if (newQuantity < 1) return removeFromCart(productId);
+    
+    const product = products.find(p => p.id === productId);
+    if (product && newQuantity > product.stock) return;
+    
     setCart((prev) =>
       prev.map((item) =>
         item.id === productId ? { ...item, quantity: newQuantity } : item
@@ -69,14 +102,50 @@ const POS = () => {
     );
   };
 
-  const checkout = () => {
-    console.log('Checkout:', cart);
-    setCart([])
-  };
+  const checkout = async () => {
+    try {
+      
+      const saleData = {
+        date: new Date().toISOString(),
+        items: cart,
+        total: cart.reduce((sum, item) => sum + (item.price * item.quantity), 0),
+        status: 'completed'
+      };
 
+      
+      const response = await fetch('http://localhost:3000/sales', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(saleData)
+      });
+
+      if (!response.ok) throw new Error('Failed to record sale');
+
+      setIsCheckoutComplete(true);
+      console.log('Sale recorded:', saleData);
+
+    } catch (error) {
+      console.error('Checkout error:', error);
+      setError('Failed to complete checkout. Please try again.');
+    }
+  };
 
   const handleBackClick = () => {
     navigate('/dashboard');
+  };
+
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const handleSortChange = (e) => {
+    setSortOption(e.target.value);
+  };
+
+  const toggleSortDirection = () => {
+    setSortDirection(prev => prev === 'asc' ? 'desc' : 'asc');
   };
 
   return (
@@ -85,17 +154,50 @@ const POS = () => {
         Back to Dashboard
       </button>
 
+      {error && <div className="error-message">{error}</div>}
+
+      <div className="product-controls">
+        <input
+          type="text"
+          placeholder="Search products..."
+          value={searchTerm}
+          onChange={handleSearch}
+          className="search-input"
+        />
+        
+        <div className="sort-controls">
+          <select 
+            value={sortOption} 
+            onChange={handleSortChange}
+            className="sort-select"
+          >
+            <option value="name">Name</option>
+            <option value="price">Price</option>
+            <option value="category">Category</option>
+          </select>
+          
+          <button 
+            onClick={toggleSortDirection} 
+            className="sort-direction-btn"
+          >
+            {sortDirection === 'asc' ? '↑' : '↓'}
+          </button>
+        </div>
+      </div>
+
       <div className="cart-section">
         <CartView
           cartItems={cart}
           onRemove={removeFromCart}
           onUpdateQuantity={updateQuantity}
           onCheckout={checkout}
+          isCheckoutComplete={isCheckoutComplete}
         />
       </div>
+      
       <div className="product-section">
         <ProductView
-          products={products}
+          products={filteredProducts}
           loading={loading}
           onAddToCart={addToCart}
         />
