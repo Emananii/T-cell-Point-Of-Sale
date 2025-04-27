@@ -3,7 +3,7 @@ import InventoryList from "./InventoryList";
 import AddProductForm from "./AddProductForm";
 
 const InventoryTabs = ({ onProductAdded, refresh }) => {
-  // State to manage which tab is active
+  
   const [activeTab, setActiveTab] = useState("list");
 
   const handleTabChange = (tab) => {
