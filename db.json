@@ -31,7 +31,7 @@
       "purchase-price": 48,
       "selling-price": 60,
       "stock": 100,
-      "image": "https://openfoodfacts.net/image-url.jpg",
+      "image": "https://images.unsplash.com/photo-1517448931760-9bf4414148c5?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "barcode": "1234567890001",
       "category": "Dairy",
       "unit": "ml"
@@ -43,7 +43,7 @@
       "purchase-price": 200,
       "selling-price": 250,
       "stock": 25,
-      "image": "https://openfoodfacts.net/image-url.jpg",
+      "image": "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?q=80&w=2636&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "barcode": "1234567890002",
       "category": "Grocery",
       "unit": "ml"
@@ -55,7 +55,7 @@
       "purchase-price": 400,
       "selling-price": 500,
       "stock": 40,
-      "image": "https://openfoodfacts.net/image-url.jpg",
+      "image": "https://images.unsplash.com/photo-1709651808265-977ed7ef78c6?q=80&w=2669&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "barcode": "1234567890003",
       "category": "Grocery",
       "unit": "g"
@@ -67,7 +67,7 @@
       "purchase-price": 80,
       "selling-price": 100,
       "stock": 60,
-      "image": "https://openfoodfacts.net/image-url.jpg",
+      "image": "https://images.unsplash.com/photo-1684409642850-b48e5ab8e67c?q=80&w=2564&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "barcode": "1234567890004",
       "category": "Grocery",
       "unit": "g"
@@ -79,7 +79,7 @@
       "purchase-price": 240,
       "selling-price": 300,
       "stock": 200,
-      "image": "https://openfoodfacts.net/image-url.jpg",
+      "image": "https://images.unsplash.com/photo-1584556812945-a6830379555b?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "barcode": "1234567890005",
       "category": "Household",
       "unit": "roll"
@@ -91,7 +91,7 @@
       "purchase-price": 40,
       "selling-price": 50,
       "stock": 150,
-      "image": "https://openfoodfacts.net/image-url.jpg",
+      "image": "https://images.unsplash.com/photo-1600490036275-35f5f1656861?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "barcode": "1234567890006",
       "category": "Grocery",
       "unit": "pack"
@@ -103,7 +103,7 @@
       "purchase-price": 280,
       "selling-price": 350,
       "stock": 80,
-      "image": "https://openfoodfacts.net/image-url.jpg",
+      "image": "https://images.unsplash.com/photo-1624684244440-1130c3b65783?q=80&w=2570&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "barcode": "1234567890007",
       "category": "Grocery",
       "unit": "g"
@@ -115,7 +115,7 @@
       "purchase-price": 24,
       "selling-price": 30,
       "stock": 120,
-      "image": "https://openfoodfacts.net/image-url.jpg",
+      "image": "https://images.unsplash.com/photo-1634612831148-03a8550e1d52?q=80&w=2664&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "barcode": "1234567890008",
       "category": "Grocery",
       "unit": "g"
@@ -127,7 +127,7 @@
       "purchase-price": 200,
       "selling-price": 250,
       "stock": 150,
-      "image": "https://openfoodfacts.net/image-url.jpg",
+      "image": "https://images.unsplash.com/photo-1624462048568-72794ee6d6f8?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "barcode": "1234567890009",
       "category": "Grocery",
       "unit": "ml"
@@ -139,7 +139,7 @@
       "purchase-price": 96,
       "selling-price": 120,
       "stock": 90,
-      "image": "https://openfoodfacts.net/image-url.jpg",
+      "image": "https://images.unsplash.com/photo-1741520149946-d2e652514b5a?q=80&w=2588&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "barcode": "1234567890010",
       "category": "Snacks",
       "unit": "pack"
@@ -151,7 +151,7 @@
       "purchase-price": 280,
       "selling-price": 350,
       "stock": 70,
-      "image": "https://openfoodfacts.net/image-url.jpg",
+      "image": "https://images.unsplash.com/photo-1683314573422-649a3c6ad784?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "barcode": "1234567890011",
       "category": "Dairy",
       "unit": "g"
@@ -163,7 +163,7 @@
       "purchase-price": 120,
       "selling-price": 150,
       "stock": 110,
-      "image": "https://openfoodfacts.net/image-url.jpg",
+      "image": "https://images.unsplash.com/photo-1600271886742-f049cd451bba?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "barcode": "1234567890012",
       "category": "Beverages",
       "unit": "ml"
@@ -175,7 +175,7 @@
       "purchase-price": 480,
       "selling-price": 600,
       "stock": 50,
-      "image": "https://openfoodfacts.net/image-url.jpg",
+      "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "barcode": "1234567890013",
       "category": "Frozen Foods",
       "unit": "pack"
@@ -187,7 +187,7 @@
       "purchase-price": 400,
       "selling-price": 500,
       "stock": 60,
-      "image": "https://openfoodfacts.net/image-url.jpg",
+      "image": "https://images.unsplash.com/photo-1569691899455-88464f6d3ab1?q=80&w=2572&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "barcode": "1234567890014",
       "category": "Frozen Foods",
       "unit": "g"
@@ -199,7 +199,7 @@
       "purchase-price": 64,
       "selling-price": 80,
       "stock": 150,
-      "image": "https://openfoodfacts.net/image-url.jpg",
+      "image": "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "barcode": "1234567890015",
       "category": "Fruits",
       "unit": "g"
@@ -211,7 +211,7 @@
       "purchase-price": 36,
       "selling-price": 40,
       "stock": 200,
-      "image": "https://openfoodfacts.net/image-url.jpg",
+      "image": "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?q=80&w=2680&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "barcode": "1234567890016",
       "category": "Fruits",
       "unit": "g"
@@ -223,7 +223,7 @@
       "purchase-price": 40,
       "selling-price": 50,
       "stock": 100,
-      "image": "https://openfoodfacts.net/image-url.jpg",
+      "image": "https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "barcode": "1234567890017",
       "category": "Vegetables",
       "unit": "g"
@@ -235,31 +235,34 @@
       "purchase-price": 56,
       "selling-price": 70,
       "stock": 80,
-      "image": "https://openfoodfacts.net/image-url.jpg",
+      "image": "https://images.unsplash.com/photo-1648822825892-ee88e97bdd34?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "barcode": "1234567890018",
       "category": "Vegetables",
       "unit": "g"
     },
     {
-      "id": "abde",
-      "name": "Beans",
-      "purchase-price": 72,
-      "selling-price": 90,
-      "quantity": 90
+      "id": "b068",
+      "name": "Eggs",
+      "purchase-price": 15,
+      "selling-price": 20,
+      "stock": 20,
+      "category": "Groceries",
+      "unit": "pcs",
+      "image": "https://images.unsplash.com/photo-1536816579748-4ecb3f03d72a?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "discount": null,
+      "dateAdded": "2025-04-28"
     },
     {
-      "id": "8929",
-      "name": "Nutella",
-      "purchase-price": 560,
-      "selling-price": 700,
-      "quantity": 20
-    },
-    {
-      "id": "037f",
-      "name": "Rice basmati",
-      "purchase-price": 280,
-      "selling-price": 350,
-      "quantity": 20
+      "id": "24b4",
+      "name": "Onions",
+      "purchase-price": 40,
+      "selling-price": 60,
+      "stock": 50,
+      "category": "Groceries",
+      "unit": "kg",
+      "image": "https://images.unsplash.com/photo-1620574387735-3624d75b2dbc?q=80&w=2680&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "discount": null,
+      "dateAdded": "2025-04-28"
     }
   ],
   "sales": [
@@ -366,6 +369,304 @@
         }
       ],
       "total": 250,
+      "status": "completed"
+    },
+    {
+      "id": "1745788956858",
+      "timestamp": "2025-04-27T21:22:36.858Z",
+      "items": [
+        {
+          "name": "Brown Bread",
+          "quantity": 1,
+          "priceAtSale": 80
+        }
+      ],
+      "total": 80,
+      "status": "completed"
+    },
+    {
+      "id": "1745789678710",
+      "timestamp": "2025-04-27T21:34:38.710Z",
+      "items": [
+        {
+          "name": "Apple",
+          "quantity": 1,
+          "priceAtSale": 80
+        }
+      ],
+      "total": 80,
+      "status": "completed"
+    },
+    {
+      "id": "1745789734512",
+      "timestamp": "2025-04-27T21:35:34.512Z",
+      "items": [
+        {
+          "name": "Apple",
+          "quantity": 1,
+          "priceAtSale": 80
+        }
+      ],
+      "total": 80,
+      "status": "completed"
+    },
+    {
+      "id": "1745789788022",
+      "timestamp": "2025-04-27T21:36:28.022Z",
+      "items": [
+        {
+          "name": "Coca-Cola",
+          "quantity": 2,
+          "priceAtSale": 120
+        }
+      ],
+      "total": 240,
+      "status": "completed"
+    },
+    {
+      "id": "1745789925444",
+      "timestamp": "2025-04-27T21:38:45.444Z",
+      "items": [
+        {
+          "name": "Coca-Cola",
+          "quantity": 1,
+          "priceAtSale": 120
+        }
+      ],
+      "total": 120,
+      "status": "completed"
+    },
+    {
+      "id": "1745790846640",
+      "timestamp": "2025-04-27T21:54:06.640Z",
+      "items": [
+        {
+          "name": "Brown Bread",
+          "quantity": 1,
+          "priceAtSale": 80
+        }
+      ],
+      "total": 80,
+      "status": "completed"
+    },
+    {
+      "id": "1745792380269",
+      "timestamp": "2025-04-27T22:19:40.269Z",
+      "items": [
+        {
+          "productId": "17",
+          "name": "Apple",
+          "quantity": 1,
+          "priceAtSale": 80
+        },
+        {
+          "productId": "2",
+          "name": "Brown Bread",
+          "quantity": 1,
+          "priceAtSale": 80
+        },
+        {
+          "productId": "19",
+          "name": "Carrot",
+          "quantity": 1,
+          "priceAtSale": 50
+        },
+        {
+          "productId": "13",
+          "name": "Cheddar Cheese",
+          "quantity": 1,
+          "priceAtSale": 350
+        }
+      ],
+      "total": 560,
+      "status": "completed"
+    },
+    {
+      "id": "1745792509250",
+      "timestamp": "2025-04-27T22:21:49.250Z",
+      "items": [
+        {
+          "productId": "17",
+          "name": "Apple",
+          "quantity": 1,
+          "priceAtSale": 80
+        }
+      ],
+      "total": 80,
+      "status": "completed"
+    },
+    {
+      "id": "1745792665905",
+      "timestamp": "2025-04-27T22:24:25.905Z",
+      "items": [
+        {
+          "productId": "17",
+          "name": "Apple",
+          "quantity": 1,
+          "priceAtSale": 80
+        }
+      ],
+      "total": 80,
+      "status": "completed"
+    },
+    {
+      "id": "1745792670321",
+      "timestamp": "2025-04-27T22:24:30.321Z",
+      "items": [
+        {
+          "productId": "17",
+          "name": "Apple",
+          "quantity": 1,
+          "priceAtSale": 80
+        }
+      ],
+      "total": 80,
+      "status": "completed"
+    },
+    {
+      "id": "1745792767226",
+      "timestamp": "2025-04-27T22:26:07.226Z",
+      "items": [
+        {
+          "productId": "17",
+          "name": "Apple",
+          "quantity": 1,
+          "priceAtSale": 80
+        }
+      ],
+      "total": 80,
+      "status": "completed"
+    },
+    {
+      "id": "1745792820609",
+      "timestamp": "2025-04-27T22:27:00.609Z",
+      "items": [
+        {
+          "productId": "17",
+          "name": "Apple",
+          "quantity": 1,
+          "priceAtSale": 80
+        }
+      ],
+      "total": 80,
+      "status": "completed"
+    },
+    {
+      "id": "1745792828928",
+      "timestamp": "2025-04-27T22:27:08.928Z",
+      "items": [
+        {
+          "productId": "17",
+          "name": "Apple",
+          "quantity": 1,
+          "priceAtSale": 80
+        }
+      ],
+      "total": 80,
+      "status": "completed"
+    },
+    {
+      "id": "1745792981511",
+      "timestamp": "2025-04-27T22:29:41.511Z",
+      "items": [
+        {
+          "productId": "1",
+          "name": "Coca-Cola",
+          "quantity": 1,
+          "priceAtSale": 120
+        }
+      ],
+      "total": 120,
+      "status": "completed"
+    },
+    {
+      "id": "1745792998656",
+      "timestamp": "2025-04-27T22:29:58.656Z",
+      "items": [
+        {
+          "productId": "2",
+          "name": "Brown Bread",
+          "quantity": 1,
+          "priceAtSale": 80
+        }
+      ],
+      "total": 80,
+      "status": "completed"
+    },
+    {
+      "id": "1745793022909",
+      "timestamp": "2025-04-27T22:30:22.909Z",
+      "items": [
+        {
+          "productId": "19",
+          "name": "Carrot",
+          "quantity": 1,
+          "priceAtSale": 50
+        }
+      ],
+      "total": 50,
+      "status": "completed"
+    },
+    {
+      "id": "1745793171788",
+      "timestamp": "2025-04-27T22:32:51.788Z",
+      "items": [
+        {
+          "productId": "17",
+          "name": "Apple",
+          "quantity": 1,
+          "priceAtSale": 80
+        }
+      ],
+      "total": 80,
+      "status": "completed"
+    },
+    {
+      "id": 1745795079544,
+      "timestamp": "2025-04-27T23:04:39.544Z",
+      "items": [
+        {
+          "productId": "18",
+          "name": "Banana",
+          "quantity": 4,
+          "priceAtSale": 40
+        },
+        {
+          "productId": "17",
+          "name": "Apple",
+          "quantity": 1,
+          "priceAtSale": 80
+        }
+      ],
+      "total": 240,
+      "status": "completed"
+    },
+    {
+      "id": 1745796623974,
+      "timestamp": "2025-04-27T23:30:23.974Z",
+      "items": [
+        {
+          "productId": "b068",
+          "name": "Eggs",
+          "quantity": 1,
+          "priceAtSale": 20
+        }
+      ],
+      "total": 20,
+      "status": "completed"
+    },
+    {
+      "id": 1745796730570,
+      "timestamp": "2025-04-27T23:32:10.570Z",
+      "items": [
+        {
+          "productId": "24b4",
+          "name": "Onions",
+          "quantity": 1,
+          "priceAtSale": 60
+        }
+      ],
+      "total": 60,
       "status": "completed"
     }
   ]

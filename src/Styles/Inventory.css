@@ -8,7 +8,7 @@
   --accent-color: #7209b7;
   --success-color: #4cc9f0;
   --danger-color: #f72585;
-  --background-light: #f8f9fa;
+  --background-light: #e0ecf8;
   --text-dark: #2b2d42;
   --text-light: #ffffff;
   --border-radius: 12px;
@@ -110,7 +110,7 @@ form input::placeholder {
   color: #a0aec0;
 }
 
-/* Buttons with Ripple Effect */
+
 button {
   padding: 12px 20px;
   margin-right: 10px;

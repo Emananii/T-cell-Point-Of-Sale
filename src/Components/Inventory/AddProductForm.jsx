@@ -17,19 +17,19 @@ const AddProductForm = ({ onProductAdded }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     const newProduct = {
       name,
-      purchasePrice: parseFloat(purchasePrice),
-      sellingPrice: parseFloat(sellingPrice),
+      'purchase-price': parseFloat(purchasePrice),  // Change to match the correct key
+      'selling-price': parseFloat(sellingPrice),   // Change to match the correct key
       stock: parseInt(stock),
       category,
       unit,
       image,
-      discount: parseFloat(discount),
+      discount: discount ? parseFloat(discount) : null,  // Handle discount in case it's not filled
       dateAdded,
     };
-
+  
     try {
       // Make a POST request to add the product
       await fetch('http://localhost:3000/products', {
@@ -39,10 +39,10 @@ const AddProductForm = ({ onProductAdded }) => {
         },
         body: JSON.stringify(newProduct),
       });
-
+  
       // Show success message
       setMessage("✅ Product added successfully!");
-
+  
       // Clear the form after submission
       setName('');
       setPurchasePrice('');
@@ -53,22 +53,23 @@ const AddProductForm = ({ onProductAdded }) => {
       setImage('');
       setDiscount('');
       setDateAdded('');
-
+  
       // Refresh product list
       if (onProductAdded) onProductAdded();
-
+  
       // Clear the message after 3 seconds
       setTimeout(() => {
         setMessage('');
       }, 3000);
-
+  
     } catch (error) {
       console.error("Error adding product:", error);
-
+  
       // Show error message
       setMessage("❌ Error adding product. Please try again.");
     }
   };
+  
 
   return (
     <div className="add-product-form">
