@@ -353,6 +353,20 @@
       ],
       "total": 4480,
       "status": "completed"
+    },
+    {
+      "id": "sale-20250427-192410",
+      "timestamp": "2025-04-27T16:24:10.221Z",
+      "items": [
+        {
+          "productId": "4",
+          "name": "Cooking Oil",
+          "quantity": 1,
+          "priceAtSale": 250
+        }
+      ],
+      "total": 250,
+      "status": "completed"
     }
   ]
 }

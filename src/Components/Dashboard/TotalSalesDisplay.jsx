@@ -11,13 +11,13 @@ function TotalSalesDisplay({ salesData }) {
   }
 
   const totalSales = salesData.reduce((total, sale) => total + (sale.total || 0), 0);
-  const recentSales = salesData.slice(-5).reverse(); // Get last 5, newest first
+  const recentSales = salesData.slice(-6).reverse(); // Get last 5, newest first
 
   return (
     <div className="dashboard-card card-sales">
       <h2 className="card-title">Total Sales: Ksh {totalSales.toLocaleString()}</h2>
 
-      <h3 className="recent-sales-title">Recent Sales</h3>
+      <h3 className="recent-sales-title">Most Recent Sales:</h3>
       <ol className="recent-sales-list">
         {recentSales.map((sale, index) => (
           <li key={index} className="sale-item">
