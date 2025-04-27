@@ -121,14 +121,10 @@ const POS = () => {
         id: saleId,
         timestamp,
         items: cart.map(item => ({
-          id: item.id,
+          productId: item.id,         // <<<<<<<<<<<<<<<<<<<
           name: item.name,
-          price: item.price,
-          stock: item.stock,
-          image: item.image,
-          category: item.category,
-          unit: item.unit,
           quantity: item.quantity,
+          priceAtSale: item.price,    // <<<<<<<<<<<<<<<<<<<
         })),
         total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0),
         status: 'completed',
@@ -144,18 +140,14 @@ const POS = () => {
   
       console.log('Sale recorded:', saleData);
   
-      
       setCart([]);
-      
-      setIsCheckoutComplete(false); 
+      setIsCheckoutComplete(false);
   
     } catch (error) {
       console.error('Checkout error:', error);
       setError('Failed to complete checkout. Please try again.');
     }
   };
-  
-  
   
 
   const handleBackClick = () => {

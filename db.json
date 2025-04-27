@@ -321,67 +321,37 @@
       "total": 550
     },
     {
-      "id": "1dba",
-      "timestamp": "2025-04-26T11:20:43.137Z",
+      "id": "sale-20250427-171559",
+      "timestamp": "2025-04-27T14:15:59.510Z",
       "items": [
         {
-          "id": "17",
+          "productId": "17",
           "name": "Apple",
-          "price": 80,
-          "stock": 150,
-          "image": "https://openfoodfacts.net/image-url.jpg",
-          "category": "Fruits",
-          "unit": "g",
-          "quantity": 1
+          "quantity": 1,
+          "priceAtSale": 80
+        }
+      ],
+      "total": 80,
+      "status": "completed"
+    },
+    {
+      "id": "sale-20250427-171750",
+      "timestamp": "2025-04-27T14:17:50.997Z",
+      "items": [
+        {
+          "productId": "18",
+          "name": "Banana",
+          "quantity": 110,
+          "priceAtSale": 40
         },
         {
-          "id": "18",
-          "name": "Banana",
-          "price": 40,
-          "stock": 200,
-          "image": "https://openfoodfacts.net/image-url.jpg",
-          "category": "Fruits",
-          "unit": "g",
-          "quantity": 1
+          "productId": "2",
+          "name": "Brown Bread",
+          "quantity": 1,
+          "priceAtSale": 80
         }
       ],
-      "total": 120,
-      "status": "completed"
-    },
-    {
-      "id": "1dbb",
-      "timestamp": "2025-04-26T15:39:47.841Z",
-      "items": [
-        {
-          "id": "17",
-          "name": "Apple",
-          "price": 80,
-          "stock": 150,
-          "image": "https://openfoodfacts.net/image-url.jpg",
-          "category": "Fruits",
-          "unit": "g",
-          "quantity": 1
-        }
-      ],
-      "total": 80,
-      "status": "completed"
-    },
-    {
-      "id": "sale-20250427-154846",
-      "timestamp": "2025-04-27T12:48:46.754Z",
-      "items": [
-        {
-          "id": "17",
-          "name": "Apple",
-          "price": 80,
-          "stock": 150,
-          "image": "https://openfoodfacts.net/image-url.jpg",
-          "category": "Fruits",
-          "unit": "g",
-          "quantity": 1
-        }
-      ],
-      "total": 80,
+      "total": 4480,
       "status": "completed"
     }
   ]
