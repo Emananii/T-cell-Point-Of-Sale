@@ -1,8 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Layout from './Components/Dashboard/Layout.jsx';
 import Dashboard from './Components/Dashboard/Dashboard.jsx';
-import InventoryList from "./Components/Inventory/InventoryList.jsx";
-import AddProductForm from "./Components/Inventory/AddProductForm.jsx";
+import InventoryTabs from "./Components/Inventory/InventoryTabs.jsx"; // <-- new import
 import Sales from "./Components/Sales/Sales.jsx";
 import POS from "./Components/POS/POS.jsx";
 import { useState } from 'react';
@@ -19,19 +18,13 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Navigate to="/dashboard" />} />
-        
-        {/* Routes wrapped in the shared layout */}
+
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/sales" element={<Sales />} />
-          <Route path="/inventory" element={
-            <div>
-              <h1>Inventory Management</h1>
-              <AddProductForm onProductAdded={handleRefresh} />
-              <InventoryList key={refresh} />
-            </div>
-          } />
+          <Route path="/inventory" element={<InventoryTabs onProductAdded={handleRefresh} refresh={refresh} />} />
         </Route>
+
         <Route path="/pos" element={<POS />} />
       </Routes>
     </Router>

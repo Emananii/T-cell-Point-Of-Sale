@@ -3,59 +3,142 @@ import '../../Styles/Inventory.css';
 
 const AddProductForm = ({ onProductAdded }) => {
   const [name, setName] = useState('');
-  const [price, setPrice] = useState('');
-  const [quantity, setQuantity] = useState('');
+  const [purchasePrice, setPurchasePrice] = useState('');
+  const [sellingPrice, setSellingPrice] = useState('');
+  const [stock, setStock] = useState('');
+  const [category, setCategory] = useState('');
+  const [unit, setUnit] = useState('');
+  const [image, setImage] = useState('');
+  const [discount, setDiscount] = useState('');
+  const [dateAdded, setDateAdded] = useState('');
+  
+  // State to show success/error messages
+  const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const newProduct = {
       name,
-      price: parseFloat(price),
-      quantity: parseInt(quantity),
+      purchasePrice: parseFloat(purchasePrice),
+      sellingPrice: parseFloat(sellingPrice),
+      stock: parseInt(stock),
+      category,
+      unit,
+      image,
+      discount: parseFloat(discount),
+      dateAdded,
     };
 
-    await fetch('http://localhost:3000/products', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newProduct),
-    });
+    try {
+      // Make a POST request to add the product
+      await fetch('http://localhost:3000/products', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newProduct),
+      });
 
-    // Clear form
-    setName('');
-    setPrice('');
-    setQuantity('');
+      // Show success message
+      setMessage("✅ Product added successfully!");
 
-    // This is to Notify parent to refresh list
-    if (onProductAdded) onProductAdded();
+      // Clear the form after submission
+      setName('');
+      setPurchasePrice('');
+      setSellingPrice('');
+      setStock('');
+      setCategory('');
+      setUnit('');
+      setImage('');
+      setDiscount('');
+      setDateAdded('');
+
+      // Refresh product list
+      if (onProductAdded) onProductAdded();
+
+      // Clear the message after 3 seconds
+      setTimeout(() => {
+        setMessage('');
+      }, 3000);
+
+    } catch (error) {
+      console.error("Error adding product:", error);
+
+      // Show error message
+      setMessage("❌ Error adding product. Please try again.");
+    }
   };
 
   return (
-    <div>
+    <div className="add-product-form">
       <h2>Add New Product</h2>
+      
+      {/* Show success or error message */}
+      {message && <div className="message">{message}</div>}
+
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          placeholder="Product name"
+          placeholder="Product Name"
           value={name}
           required
           onChange={(e) => setName(e.target.value)}
         />
         <input
           type="number"
-          placeholder="Price"
-          value={price}
+          placeholder="Purchase Price"
+          value={purchasePrice}
           required
-          onChange={(e) => setPrice(e.target.value)}
+          onChange={(e) => setPurchasePrice(e.target.value)}
         />
         <input
           type="number"
-          placeholder="Quantity"
-          value={quantity}
+          placeholder="Selling Price"
+          value={sellingPrice}
           required
-          onChange={(e) => setQuantity(e.target.value)}
+          onChange={(e) => setSellingPrice(e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder="Stock Quantity"
+          value={stock}
+          required
+          onChange={(e) => setStock(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Category"
+          value={category}
+          required
+          onChange={(e) => setCategory(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Unit (e.g., ml, kg, pcs)"
+          value={unit}
+          required
+          onChange={(e) => setUnit(e.target.value)}
+        />
+        <input
+          type="url"
+          placeholder="Image URL"
+          value={image}
+          required
+          onChange={(e) => setImage(e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder="Discount (%)"
+          value={discount}
+          onChange={(e) => setDiscount(e.target.value)}
+        />
+        <input
+          type="date"
+          placeholder="Date Added"
+          value={dateAdded}
+          required
+          onChange={(e) => setDateAdded(e.target.value)}
         />
         <button type="submit">Add Product</button>
       </form>
