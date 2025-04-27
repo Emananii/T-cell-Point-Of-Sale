@@ -430,6 +430,48 @@
       ],
       "total": 230,
       "status": "completed"
+    },
+    {
+      "id": "ade8",
+      "date": "2025-04-26T11:50:58.722Z",
+      "items": [
+        {
+          "id": "10",
+          "name": "Salt",
+          "price": 30,
+          "stock": 120,
+          "image": "https://openfoodfacts.net/image-url.jpg",
+          "category": "Grocery",
+          "unit": "g",
+          "quantity": 3
+        }
+      ],
+      "total": 90,
+      "status": "completed"
+    },
+    {
+      "id": "bcf1",
+      "date": "2025-04-26T13:12:48.053Z",
+      "items": [
+        {
+          "id": "18",
+          "name": "Banana",
+          "price": 40,
+          "stock": 200,
+          "image": "https://openfoodfacts.net/image-url.jpg",
+          "category": "Fruits",
+          "unit": "g",
+          "quantity": 1
+        },
+        {
+          "id": "abde",
+          "name": "Beans",
+          "price": 90,
+          "quantity": 1
+        }
+      ],
+      "total": 130,
+      "status": "completed"
     }
   ]
 }

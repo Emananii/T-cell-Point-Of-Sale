@@ -16,7 +16,6 @@ const POS = () => {
   const [isCheckoutComplete, setIsCheckoutComplete] = useState(false);
   const navigate = useNavigate();
 
-  // Fetch products
   useEffect(() => {
     fetch('http://localhost:3000/products')
       .then((response) => {
@@ -46,27 +45,46 @@ const POS = () => {
       });
   }, []);
 
-  
   useEffect(() => {
-    let result = [...products];
-    
-    if (searchTerm) {
-      result = result.filter(product =>
-        product.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        product.category.toLowerCase().includes(searchTerm.toLowerCase())
-      );
-    }
-    
-    result.sort((a, b) => {
-      if (a[sortOption] < b[sortOption]) return sortDirection === 'asc' ? -1 : 1;
-      if (a[sortOption] > b[sortOption]) return sortDirection === 'asc' ? 1 : -1;
-      return 0;
-    });
-    
-    setFilteredProducts(result);
+    const filterAndSortProducts = () => {
+      let result = [...products];
+      
+      
+      if (searchTerm) {
+        const searchLower = searchTerm.toLowerCase();
+        result = result.filter(product => {
+          return (
+            product.name?.toLowerCase().includes(searchLower) ||
+            product.category?.toLowerCase().includes(searchLower) ||
+            product.id?.toString().includes(searchTerm) ||
+            product.price?.toString().includes(searchTerm) ||
+            product.unit?.toLowerCase().includes(searchLower)
+          );
+        });
+      }
+      
+      result.sort((a, b) => {
+        const valA = a[sortOption];
+        const valB = b[sortOption];
+        
+        if (valA === undefined || valB === undefined) return 0;
+        
+        if (typeof valA === 'string' && typeof valB === 'string') {
+          return sortDirection === 'asc' 
+            ? valA.localeCompare(valB)
+            : valB.localeCompare(valA);
+        }
+        
+        return sortDirection === 'asc' ? valA - valB : valB - valA;
+      });
+      
+      setFilteredProducts(result);
+    };
+
+    filterAndSortProducts();
   }, [products, searchTerm, sortOption, sortDirection]);
 
-  
+ 
   const addToCart = (product) => {
     if (isCheckoutComplete) return;
     
@@ -103,7 +121,6 @@ const POS = () => {
 
   const checkout = async () => {
     try {
-      
       const saleData = {
         date: new Date().toISOString(),
         items: cart,
@@ -111,7 +128,6 @@ const POS = () => {
         status: 'completed'
       };
 
-      
       const response = await fetch('http://localhost:3000/sales', {
         method: 'POST',
         headers: {
@@ -139,6 +155,10 @@ const POS = () => {
     setSearchTerm(e.target.value);
   };
 
+  const clearSearch = () => {
+    setSearchTerm('');
+  };
+
   const handleSortChange = (e) => {
     setSortOption(e.target.value);
   };
@@ -156,13 +176,20 @@ const POS = () => {
       {error && <div className="error-message">{error}</div>}
 
       <div className="product-controls">
-        <input
-          type="text"
-          placeholder="Search products..."
-          value={searchTerm}
-          onChange={handleSearch}
-          className="search-input"
-        />
+        <div className="search-container">
+          <input
+            type="text"
+            placeholder="Search by name, category, ID, or price..."
+            value={searchTerm}
+            onChange={handleSearch}
+            className="search-input"
+          />
+          {searchTerm && (
+            <button className="clear-search-btn" onClick={clearSearch}>
+              ×
+            </button>
+          )}
+        </div>
         
         <div className="sort-controls">
           <select 
@@ -173,11 +200,13 @@ const POS = () => {
             <option value="name">Name</option>
             <option value="price">Price</option>
             <option value="category">Category</option>
+            <option value="stock">Stock</option>
           </select>
           
           <button 
             onClick={toggleSortDirection} 
             className="sort-direction-btn"
+            aria-label={`Sort ${sortDirection === 'asc' ? 'ascending' : 'descending'}`}
           >
             {sortDirection === 'asc' ? '↑' : '↓'}
           </button>
@@ -199,6 +228,7 @@ const POS = () => {
           products={filteredProducts}
           loading={loading}
           onAddToCart={addToCart}
+          searchTerm={searchTerm}
         />
       </div>
     </div>
