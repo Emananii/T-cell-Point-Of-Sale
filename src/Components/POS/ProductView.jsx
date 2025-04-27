@@ -1,6 +1,6 @@
 import '../../Styles/POS.css';
 
-const ProductView = ({ products, loading, onAddToCart }) => {
+const ProductView = ({ products, loading, onAddToCart, searchTerm = '' }) => {
   if (loading) {
     return (
       <div className="loading-spinner">
@@ -10,15 +10,36 @@ const ProductView = ({ products, loading, onAddToCart }) => {
     );
   }
 
-  if (!products?.length) {
-    return <p>No products available.</p>;
+  // Enhanced search filtering
+  const filteredProducts = products.filter(product => {
+    if (!searchTerm) return true;
+    
+    const searchLower = searchTerm.toLowerCase();
+    return (
+      product.name?.toLowerCase().includes(searchLower) ||
+      product.category?.toLowerCase().includes(searchLower) ||
+      product.id?.toString().includes(searchTerm) || // Search by ID
+      product.price?.toString().includes(searchTerm) // Search by price
+    );
+  });
+
+  if (!filteredProducts.length) {
+    return (
+      <div className="product-view">
+        <h2>Products</h2>
+        <div className="no-results">
+          <p>No products found for "{searchTerm}"</p>
+          <p>Try searching by name, category, ID, or price</p>
+        </div>
+      </div>
+    );
   }
 
   return (
     <div className="product-view">
-      <h2>Products</h2>
+      <h2>Products {searchTerm && `(Search: "${searchTerm}")`}</h2>
       <div className="product-grid">
-        {products.map((product) => (
+        {filteredProducts.map((product) => (
           <div key={product.id} className="product-card">
             <img
               src={product?.image || 'https://via.placeholder.com/140'}
@@ -27,7 +48,11 @@ const ProductView = ({ products, loading, onAddToCart }) => {
             />
             <div className="product-details">
               <h3>{product?.name || 'Unnamed Product'}</h3>
-              <p>${product?.price ? product.price.toFixed(2) : '0.00'}</p>
+              <div className="product-meta">
+                <p className="product-price">${product?.price ? product.price.toFixed(2) : '0.00'}</p>
+                {product.category && <p className="product-category">{product.category}</p>}
+                <p className="product-id">ID: {product.id}</p>
+              </div>
             </div>
             <div className="product-actions">
               <button
