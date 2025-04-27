@@ -1,7 +1,8 @@
 import React, { useMemo } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import '../../Styles/Card.css'; // ✅ Import your Card.css to reuse styles
 
-function ProfitPerDayChart({ salesData, productsData }){
+function ProfitPerDayChart({ salesData, productsData }) {
   const data = useMemo(() => {
     const dailyProfit = {};
 
@@ -22,37 +23,36 @@ function ProfitPerDayChart({ salesData, productsData }){
       });
     });
 
-    
     const formatted = Object.keys(dailyProfit).map(date => ({
       date,
       profit: dailyProfit[date]
     }));
 
-    // Sort by date ascending
     formatted.sort((a, b) => new Date(a.date) - new Date(b.date));
 
     return formatted;
   }, [salesData, productsData]);
 
   return (
-    <div className="card" style={{
-      border: "1px solid #ccc",
-      padding: "1rem",
-      borderRadius: "8px",
-      backgroundColor: "#f9f9f9",
-      height: "400px"
-    }}>
-      <h2>Profit Per Day</h2>
-      <ResponsiveContainer width="100%" height="90%">
+    <div className="dashboard-card card-chart">
+      <h2 className="card-title">Profit Per Day</h2>
+      <ResponsiveContainer width="100%" height={300}>
         <LineChart data={data}>
           <XAxis dataKey="date" />
           <YAxis />
           <Tooltip />
-          <Line type="monotone" dataKey="profit" stroke="#8884d8" strokeWidth={3} />
+          <Line 
+            type="monotone" 
+            dataKey="profit" 
+            stroke="#4caf50" 
+            strokeWidth={3} 
+            dot={{ r: 4 }} 
+            activeDot={{ r: 6 }}
+          />
         </LineChart>
       </ResponsiveContainer>
     </div>
   );
-};
+}
 
 export default ProfitPerDayChart;

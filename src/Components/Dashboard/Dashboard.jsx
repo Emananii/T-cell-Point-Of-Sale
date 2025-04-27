@@ -34,13 +34,15 @@ function Dashboard() {
   }
 
   return (
-    <div className="dashboard-container" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+    <div className="dashboard-card" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
       <main style={{ flex: 1, padding: "2rem" }}>
         <h1>Welcome to the T-Cell Point Of Sale System</h1>
-        <TotalSalesDisplay salesData={salesData} />
-        <TrendingProducts salesData={salesData} productsData={productsData} />
         <DailyProfitCard salesData={salesData} productsData={productsData} />
         <ProfitPerDayChart salesData={salesData} productsData={productsData} />
+        <TotalSalesDisplay salesData={salesData} />
+        {/*<TrendingProducts salesData={salesData} productsData={productsData} />*/}
+        
+        
       </main>
     </div>
   );
