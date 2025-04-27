@@ -25,7 +25,7 @@ const POS = () => {
       .then((data) => {
         if (Array.isArray(data)) {
           const formatted = data.map((product) => ({
-            id: product.id,
+            saleId: product.id ?? `temp-${index}`, 
             name: product.name,
             price: product["selling-price"],//changed db.json to have selling-price rather than just price
             purchasePrice: product["purchase-price"],
@@ -122,6 +122,7 @@ const POS = () => {
 
   const checkout = async () => {
     try {
+      
       const saleData = {
         id: saleId,
         timestamp,
@@ -135,6 +136,7 @@ const POS = () => {
         status: 'completed',
       };
 
+      
       const response = await fetch('http://localhost:3000/sales', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
