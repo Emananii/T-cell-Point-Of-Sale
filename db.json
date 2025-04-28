@@ -622,7 +622,7 @@
       "status": "completed"
     },
     {
-      "id": 1745795079544,
+      "id": "1745795079544",
       "timestamp": "2025-04-27T23:04:39.544Z",
       "items": [
         {
@@ -642,7 +642,7 @@
       "status": "completed"
     },
     {
-      "id": 1745796623974,
+      "id": "1745796623974",
       "timestamp": "2025-04-27T23:30:23.974Z",
       "items": [
         {
@@ -656,7 +656,7 @@
       "status": "completed"
     },
     {
-      "id": 1745796730570,
+      "id": "1745796730570",
       "timestamp": "2025-04-27T23:32:10.570Z",
       "items": [
         {
@@ -667,6 +667,54 @@
         }
       ],
       "total": 60,
+      "status": "completed"
+    },
+    {
+      "id": "1745797443333",
+      "timestamp": "2025-04-27T23:44:03.333Z",
+      "items": [
+        {
+          "productId": "17",
+          "name": "Apple",
+          "quantity": 1,
+          "priceAtSale": 80
+        }
+      ],
+      "total": 80,
+      "status": "completed"
+    },
+    {
+      "id": "1745797817268",
+      "timestamp": "2025-04-27T23:50:17.268Z",
+      "items": [
+        {
+          "productId": "13",
+          "name": "Cheddar Cheese",
+          "quantity": 1,
+          "priceAtSale": 350
+        }
+      ],
+      "total": 350,
+      "status": "completed"
+    },
+    {
+      "id": 1745798448815,
+      "timestamp": "2025-04-28T00:00:48.815Z",
+      "items": [
+        {
+          "productId": "16",
+          "name": "Chicken Nuggets",
+          "quantity": 1,
+          "priceAtSale": 500
+        },
+        {
+          "productId": "4",
+          "name": "Cooking Oil",
+          "quantity": 3,
+          "priceAtSale": 250
+        }
+      ],
+      "total": 1250,
       "status": "completed"
     }
   ]

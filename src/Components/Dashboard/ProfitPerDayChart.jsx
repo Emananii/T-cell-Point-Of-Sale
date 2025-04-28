@@ -1,19 +1,19 @@
 import React, { useMemo } from "react";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
-import '../../Styles/Card.css'; // ✅ Import your Card.css to reuse styles
+import '../../Styles/Card.css'; 
 
 function ProfitPerDayChart({ salesData, productsData }) {
   const data = useMemo(() => {
     const dailyProfit = {};
-    let firstSaleDate = new Date();  // To track the first sale date
+    let firstSaleDate = new Date();
 
-    // Collect profit data and find the first sale date
+    
     salesData.forEach(sale => {
       if (!sale.timestamp) return;
 
-      const saleDate = sale.timestamp.split("T")[0];
-      firstSaleDate = new Date(Math.min(firstSaleDate, new Date(saleDate))); // Update first sale date if necessary
-
+      // Converting the timestamp to a local date (since the sales data uses UTC)
+      const saleDate = new Date(sale.timestamp).toLocaleDateString();
+      firstSaleDate = new Date(Math.min(firstSaleDate, new Date(saleDate))); 
       if (!dailyProfit[saleDate]) dailyProfit[saleDate] = 0;
 
       sale.items.forEach(item => {
@@ -26,20 +26,28 @@ function ProfitPerDayChart({ salesData, productsData }) {
       });
     });
 
-    // Generate dates from the first sale date to today
-    const today = new Date().toISOString().split("T")[0];
-    const allDates = [];
-    for (let date = firstSaleDate; date <= new Date(today); date.setDate(date.getDate() + 1)) {
-      allDates.push(date.toISOString().split("T")[0]);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);  
+    const todayDateString = today.toLocaleDateString(); // Get today's local date format
+
+  
+    if (!dailyProfit[todayDateString]) {
+      dailyProfit[todayDateString] = 0;  // Set profit for today to 0 if no sales
     }
 
-    // Create an array of formatted data, ensuring all dates are represented
+    // Generate all dates from first sale to today
+    const allDates = [];
+    for (let date = firstSaleDate; date <= today; date.setDate(date.getDate() + 1)) {
+      allDates.push(date.toLocaleDateString()); // Store as local date string (e.g., "4/27/2025")
+    }
+
+  
     const formattedData = allDates.map(date => ({
       date,
-      profit: dailyProfit[date] || 0, // Default to 0 if no sales on that day
+      profit: dailyProfit[date] || 0,
     }));
 
-    // Sort data by date
+    
     formattedData.sort((a, b) => new Date(a.date) - new Date(b.date));
 
     return formattedData;

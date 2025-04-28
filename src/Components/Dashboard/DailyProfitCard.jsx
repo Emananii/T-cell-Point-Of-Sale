@@ -2,10 +2,15 @@ import React from 'react';
 import '../../Styles/Card.css';
 
 function DailyProfitCard({ salesData, productsData }) {
-  const today = new Date().toISOString().split("T")[0]; // '2025-04-26'
+  const today = new Date();
+  const todayStr = today.toLocaleDateString('en-GB'); // Format: 'DD/MM/YYYY'
 
   const profitToday = salesData
-    .filter(sale => sale.timestamp && sale.timestamp.startsWith(today))
+    .filter(sale => {
+      // Convert timestamp to local date string (ignore time)
+      const saleDate = new Date(sale.timestamp).toLocaleDateString('en-GB');
+      return saleDate === todayStr;
+    })
     .reduce((totalProfit, sale) => {
       return totalProfit + sale.items.reduce((saleProfit, item) => {
         const product = productsData.find(p => p.id === item.productId);
