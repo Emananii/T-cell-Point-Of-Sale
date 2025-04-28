@@ -62,19 +62,74 @@ The system provides essential POS functionalities like browsing products, managi
 
 ---
 
+## 🛠 Installation and Setup (Local Development)
+
+### 1. Prerequisites
+
+- [Node.js](https://nodejs.org/) (v16+ recommended)
+- npm (comes with Node.js)
+
+### 2. Clone the Repository
+
+git clone https://github.com/your-username/point-of-sale-system.git
+cd point-of-sale-system
+install frontend dependencies: npm install
+start the development server: npm run dev
+
+## 🛰 Deployment
+
+The frontend is deployed to Netlify.
+The backend (mock API) is deployed to Render.
+
+## To Deploy Frontend:
+1. Push your code to GitHub.
+
+2. Create a new site on Netlify.
+
+3. Link your GitHub repository.
+
+4. Set build settings:
+
+5. Build command: npm run build
+
+6. Publish directory: dist
+
+7. Click "Deploy".
+
+## To Deploy Backend:
+
+Since the backend uses only a db.json, you can deploy a JSON Server API to Render:
+
+1. Create a GitHub repo with your db.json and package.json.
+
+2. Create a new Web Service on Render.
+
+3. Connect the GitHub repository.
+
+4. Use the following settings:
+
+5. Build Command: npm install
+
+6. Start Command: npm run start
+
+7. Make sure to expose the correct port.
+
+8. Deploy!
+
+
 ## 🛠 Future Improvements
 
-Implement user authentication for secure cashier/manager access
+1. Implement user authentication for secure cashier/manager access
 
-Live stock updating after sales
+2. Live stock updating after sales
 
-Product creation, editing, and deletion from an Admin Panel
+3. Product creation, editing, and deletion from an Admin Panel
 
-Print or export sales receipts
+4. Print or export sales receipts
 
-Analytics dashboard for daily/weekly sales insights
+5. Analytics dashboard for daily/weekly sales insights
 
-PWA support for offline usage in physical stores
+6. PWA support for offline usage in physical stores
 
 ## 🤝 Contribution
 
