@@ -49,7 +49,7 @@ const ProductView = ({ products, loading, onAddToCart, searchTerm = '' }) => {
             <div className="product-details">
               <h3>{product?.name || 'Unnamed Product'}</h3>
               <div className="product-meta">
-                <p className="product-price">${product?.price ? product.price.toFixed(2) : '0.00'}</p>
+                <p className="product-price">Ksh{product?.price ? product.price.toFixed(2) : '0.00'}</p>
                 {product.category && <p className="product-category">{product.category}</p>}
                 <p className="product-id">ID: {product.id}</p>
               </div>
