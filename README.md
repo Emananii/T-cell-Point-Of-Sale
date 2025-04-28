@@ -1,27 +1,85 @@
 # Point of Sale (POS) System
 
-## Project Overview
+**Live Demo:**  
+👉 (https://t-cell-point-of-sale.netlify.app/)
 
-This is a web-based Point of Sale (POS) system built with React, designed for managing products and transactions in a retail environment. The system allows users to view products, add them to the shopping cart, manage the cart, and proceed to checkout. It also includes features like product filtering, cart item management, and a dashboard for better user experience.
+---
 
-## Features
+## 📋 Project Overview
 
-- **Product Management**: Displays a list of products fetched from an API with information like name, price, stock, and category.
-- **Shopping Cart**: Allows users to add and remove products, as well as update quantities in the cart.
-- **Checkout**: Enables users to review the cart and simulate a checkout process.
-- **Responsive Design**: The interface adjusts to different screen sizes to ensure usability on both desktops and mobile devices.
-- **Dashboard Navigation**: Includes a button that allows users to return to the dashboard from the POS screen.
+This project is a web-based Point of Sale (POS) system built using **React** for the frontend. It enables users in a retail environment to manage product listings, process customer purchases, and record completed sales.
 
-## Tech Stack
+The system provides essential POS functionalities like browsing products, managing a shopping cart, performing a checkout that updates backend sales records, and navigating through a user-friendly dashboard. It’s built to be responsive, clean, and easy to extend in future versions (e.g., adding authentication, live stock management, etc.).
 
-- **Frontend**: React
-- **CSS**: Custom styles using CSS (no frameworks like Bootstrap or Material UI)
-- **Backend**: JSON Server (for serving mock product data)
-- **State Management**: React useState and useEffect hooks
+---
 
-## Installation
+## ✨ Features
 
-### Prerequisites
+- **Product Management**  
+  Browse products fetched from a live backend API, displaying details like name, category, stock, selling price, purchase price, unit, and images.
 
-- Node.js and npm should be installed. You can download them from [Node.js](https://nodejs.org/).
+- **Shopping Cart**
 
+  - Add products to cart
+  - Adjust quantities (with validation against available stock)
+  - Remove products
+
+- **Checkout with Backend Sale Recording**
+
+  - Captures complete sale details (timestamp, products, quantities, total)
+  - Sends sale data to the backend to persist the transaction.
+
+- **Product Filtering and Sorting**
+
+  - Search products by name, category, ID, price, or unit
+  - Sort by name, price, category, or stock (ascending/descending)
+
+- **Dashboard Navigation**
+
+  - Quickly return to the dashboard to view other system features.
+
+- **Responsive Design**
+  - Mobile-first styling for smooth usage on smartphones, tablets, and desktops.
+
+---
+
+## ⚙️ Tech Stack
+
+| Area                 | Tech Used                                             |
+| :------------------- | :---------------------------------------------------- |
+| **Frontend**         | React, Vite                                           |
+| **Styling**          | Custom CSS (no frameworks like Bootstrap/Material UI) |
+| **Backend**          | dummy db.json (hosted on Render)                      |
+| **State Management** | React Hooks (useState, useEffect)                     |
+| **Routing**          | React Router                                          |
+
+---
+
+## 🌐 Hosted Backend API
+
+- Products: [`https://t-cell-point-of-sale-backend.onrender.com/products`](https://t-cell-point-of-sale-backend.onrender.com/products)
+- Sales (Checkout): [`https://t-cell-point-of-sale-backend.onrender.com/sales`](https://t-cell-point-of-sale-backend.onrender.com/sales)
+
+---
+
+## 🛠 Future Improvements
+
+Implement user authentication for secure cashier/manager access
+
+Live stock updating after sales
+
+Product creation, editing, and deletion from an Admin Panel
+
+Print or export sales receipts
+
+Analytics dashboard for daily/weekly sales insights
+
+PWA support for offline usage in physical stores
+
+## 🤝 Contribution
+
+Pull requests are welcome! If you would like to contribute, please fork the repository and submit a pull request.
+
+## 📄 License
+
+This project is open-source under the MIT License.
