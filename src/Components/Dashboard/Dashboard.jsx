@@ -10,7 +10,7 @@ function Dashboard() {
 
   useEffect(() => {
     // Fetch sales data
-    fetch("http://localhost:3000/sales")
+    fetch("https://t-cell-point-of-sale-backend.onrender.com/sales")
       .then(res => res.json())
       .then(data => {
         setSalesData(data);
@@ -19,7 +19,7 @@ function Dashboard() {
       .catch(err => console.error("Sales fetch error:", err));
 
     // Fetch products data
-    fetch("http://localhost:3000/products")
+    fetch("https://t-cell-point-of-sale-backend.onrender.com/products")
       .then(res => res.json())
       .then(data => setProductsData(data))
       .catch(err => console.error("Products fetch error:", err))

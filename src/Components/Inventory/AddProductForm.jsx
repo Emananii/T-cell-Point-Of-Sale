@@ -32,7 +32,7 @@ const AddProductForm = ({ onProductAdded }) => {
   
     try {
       // Make a POST request to add the product
-      await fetch('http://localhost:3000/products', {
+      await fetch('https://t-cell-point-of-sale-backend.onrender.com/products', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

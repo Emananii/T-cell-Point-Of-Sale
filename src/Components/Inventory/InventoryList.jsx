@@ -6,7 +6,7 @@ const InventoryList = () => {
   const [newQuantity, setNewQuantity] = useState(0);
 
   const fetchProducts = async () => {
-    const res = await fetch('http://localhost:3000/products');
+    const res = await fetch('https://t-cell-point-of-sale-backend.onrender.com/products');
     const data = await res.json();
     setProducts(data);
   };
@@ -16,7 +16,7 @@ const InventoryList = () => {
   }, []);
 
   const handleDelete = async (id) => {
-    await fetch(`http://localhost:3000/products/${id}`, {
+    await fetch(`https://t-cell-point-of-sale-backend.onrender.com/products/${id}`, {
       method: 'DELETE',
     });
     fetchProducts();
@@ -28,7 +28,7 @@ const InventoryList = () => {
   };
 
   const handleSave = async (id) => {
-    await fetch(`http://localhost:3000/products/${id}`, {
+    await fetch(`https://t-cell-point-of-sale-backend.onrender.com/products/${id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

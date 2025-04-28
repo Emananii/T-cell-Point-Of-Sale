@@ -8,7 +8,7 @@ function Sales() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://localhost:3000/sales')
+    fetch('https://t-cell-point-of-sale-backend.onrender.com/sales')
       .then(res => res.json())
       .then(data => {
         setSales(data);
