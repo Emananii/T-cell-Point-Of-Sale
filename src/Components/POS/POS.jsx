@@ -156,7 +156,7 @@ function POS() {
         status: 'completed',
       };
 
-      const response = await fetch('http://localhost:3000/sales', {
+      const response = await fetch('https://t-cell-point-of-sale-backend.onrender.com/sales', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(saleData),
