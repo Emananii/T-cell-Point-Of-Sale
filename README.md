@@ -69,12 +69,18 @@ The system provides essential POS functionalities like browsing products, managi
 - [Node.js](https://nodejs.org/) (v16+ recommended)
 - npm (comes with Node.js)
 
-### 2. Clone the Repository
+### 2. Clone the Repository:
 
 git clone https://github.com/your-username/point-of-sale-system.git
 cd point-of-sale-system
-install frontend dependencies: npm install
-start the development server: npm run dev
+
+### 3. Install frontend dependencies:
+
+npm install
+
+### 4. Start the development server:
+
+npm run dev
 
 ## 🛰 Deployment
 
